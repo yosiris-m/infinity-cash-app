@@ -1,23 +1,7 @@
 {
-  "name": "familycash-app",
+  "name": "family-cash-app",
   "version": "0.1.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yosiris-m/family-cash-app.git"
-  },
-  "keywords": [
-    "cash",
-    "money",
-    "buget",
-    "expense",
-    "tracker"
-  ],
-  "author": "Yosiris Mariñez Cabrera",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/yosiris-m/family-cash-app/issues"
-  },
-  "homepage": "https://github.com/yosiris-m/family-cash-app#readme",
+  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
