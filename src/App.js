@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 
-function App() {
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
+import Transactions from "./components/Transactions";
+import Categories from "./components/Categories";
+import Reports from "./components/Reports";
+import { Nav } from "react-bootstrap";
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Nav variant="tabs" defaultActiveKey="/home">
+          <Nav.Item>
+            <Nav.Link href="/transactions">Transactions</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/reports">Reports</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/categories">Categories</Nav.Link>
+          </Nav.Item>
+        </Nav>
+
+        <Switch>
+          <Route path="/transactions">
+            <Transactions />
+          </Route>
+          <Route path="/categories">
+            <Categories />
+          </Route>
+          <Route path="/reports">
+            <Reports />
+          </Route>
+          <Redirect to="/transactions" />
+        </Switch>
+      </div>
+    </Router>
   );
 }
-
-export default App;
