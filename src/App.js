@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { useEffect, useState } from "react";
 
 import {
   BrowserRouter as Router,
@@ -7,9 +8,9 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import Transactions from "./components/Transactions";
-import Categories from "./components/Categories";
-import Reports from "./components/Reports";
+import Transactions from "./pages/transactions/Transactions";
+import Categories from "./pages/categories/Categories";
+import Reports from "./pages/reports/Reports";
 import { Nav } from "react-bootstrap";
 
 export default function App() {
