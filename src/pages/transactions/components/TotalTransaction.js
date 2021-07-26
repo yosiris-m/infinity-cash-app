@@ -1,5 +1,4 @@
 function TotalTransaction({ transactions }) {
-  console.log(transactions);
   let income = 0;
   let expenses = 0;
 
@@ -13,7 +12,8 @@ function TotalTransaction({ transactions }) {
 
   return (
     <div>
-      Income: {income} expenses: {expenses}
+      <p>Income: {income} </p>
+      <p>expenses: {expenses}</p>
     </div>
   );
 }
