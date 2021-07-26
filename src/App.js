@@ -12,7 +12,7 @@ import Transactions from "./pages/transactions/Transactions";
 import Categories from "./pages/categories/Categories";
 import Reports from "./pages/reports/Reports";
 import { Nav } from "react-bootstrap";
-
+// import "./App.css";
 export default function App() {
   return (
     <Router>

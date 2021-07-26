@@ -3,7 +3,9 @@ import Dinero from "dinero.js";
 import moment from "moment";
 
 function TransactionItem({ date, amount, category }) {
-  const price = Dinero({ amount, currency: "EUR" }).toFormat();
+  const price = Dinero({ amount, currency: "EUR" })
+    .setLocale("fr-FR")
+    .toFormat();
   const dateFormatted = moment(date).format("LL");
   return (
     <Col>

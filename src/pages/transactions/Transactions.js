@@ -29,7 +29,6 @@ function Transactions() {
 
   return (
     <>
-      <h2>Transactions</h2>
       <SelectDate initValue={now} maxValue={now} onSelect={handleSelectDate} />
       <TotalTransaction transactions={transactions} />
       <Row xs={1} sm={2}>
