@@ -3,7 +3,34 @@
   margin-left: 35px;
 }
 
+.barIncome {
+  color: rgb(41, 212, 6);
+  margin-left: 45px;
+}
+
 .totalAmount2 {
   color: red;
   margin-left: 35px;
+}
+
+.barExpenses {
+  color: red;
+  margin-left: 50px;
+}
+
+progress[value] {
+  width: 120px;
+  height: 25px;
+
+  /* Reinicializar estilos */
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: rgb(41, 212, 6);
+}
+progress[value]::-webkit-progress-bar {
+  background-color: rgb(233, 232, 230);
 }

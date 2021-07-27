@@ -1,5 +1,6 @@
 import Dinero from "dinero.js";
 import "../components/totalTransaction.css";
+// import ProgressBar from "react-bootstrap/ProgressBar";
 
 function TotalTransaction({ transactions }) {
   let income = 0;
@@ -13,16 +14,26 @@ function TotalTransaction({ transactions }) {
     }
   }
 
+  const absExpenses = Math.abs(expenses);
+  const total = income + absExpenses;
+
   return (
     <>
       <div className="totalAmount1">
         Income:
-        <p className="totalAmount__income">
+        <p>
           {Dinero({ amount: income, currency: "EUR" })
             .setLocale("fr-FR")
             .toFormat()}
+
+          <progress
+            className="barIncome"
+            max={total}
+            value={income}
+            alt="ARIA"
+          ></progress>
         </p>
-        <progress max="100" value={income}></progress>
+        {/* <ProgressBar now={income} /> */}
       </div>
       <div className="totalAmount2">
         Expenses:
@@ -30,6 +41,13 @@ function TotalTransaction({ transactions }) {
           {Dinero({ amount: expenses, currency: "EUR" })
             .setLocale("fr-FR")
             .toFormat()}
+
+          <progress
+            className="barExpenses"
+            max={total}
+            value={absExpenses}
+            alt="ARIA"
+          ></progress>
         </p>
       </div>
     </>
