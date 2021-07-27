@@ -18,7 +18,7 @@ function TotalTransaction({ transactions }) {
   const total = income + absExpenses;
 
   return (
-    <>
+    <div>
       <div className="totalAmount1">
         Income:
         <p>
@@ -44,13 +44,14 @@ function TotalTransaction({ transactions }) {
 
           <progress
             className="barExpenses"
+            id="barExpenses"
             max={total}
             value={absExpenses}
             alt="ARIA"
           ></progress>
         </p>
       </div>
-    </>
+    </div>
   );
 }
 

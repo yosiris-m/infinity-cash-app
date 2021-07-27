@@ -12,19 +12,26 @@ import Transactions from "./pages/transactions/Transactions";
 import Categories from "./pages/categories/Categories";
 import Reports from "./pages/reports/Reports";
 import { Nav } from "react-bootstrap";
-// import "./App.css";
+import img1 from "../src/images/cash-flow.svg";
+import img2 from "../src/images/calendar.svg";
+import img3 from "../src/images/binoculars.svg";
+import "../src/App.css";
+
 export default function App() {
   return (
     <Router>
       <div>
-        <Nav variant="tabs" defaultActiveKey="/home">
+        <Nav variant="tabs" defaultActiveKey="/home" className="transaction">
           <Nav.Item>
+            <img src={img1} alt="cash-flow" className="transactionImg" />
             <Nav.Link href="/transactions">Transactions</Nav.Link>
           </Nav.Item>
           <Nav.Item>
+            <img src={img2} alt="calendar" className="reportsImg" />
             <Nav.Link href="/reports">Reports</Nav.Link>
           </Nav.Item>
           <Nav.Item>
+            <img src={img3} alt="binoculars" className="categoriesImg" />
             <Nav.Link href="/categories">Categories</Nav.Link>
           </Nav.Item>
         </Nav>
