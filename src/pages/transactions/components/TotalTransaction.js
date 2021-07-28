@@ -1,5 +1,6 @@
 import Dinero from "dinero.js";
 import "../components/totalTransaction.css";
+
 // import ProgressBar from "react-bootstrap/ProgressBar";
 
 function TotalTransaction({ transactions }) {
@@ -18,7 +19,7 @@ function TotalTransaction({ transactions }) {
   const total = income + absExpenses;
 
   return (
-    <div>
+    <main className="totalAmount">
       <div className="totalAmount1">
         Income:
         <p>
@@ -51,7 +52,7 @@ function TotalTransaction({ transactions }) {
           ></progress>
         </p>
       </div>
-    </div>
+    </main>
   );
 }
 

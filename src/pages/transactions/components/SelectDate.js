@@ -11,7 +11,7 @@ function SelectDate({ initValue, maxValue, onSelect }) {
   };
 
   return (
-    <>
+    <main>
       <input
         className="month"
         type="month"
@@ -19,7 +19,7 @@ function SelectDate({ initValue, maxValue, onSelect }) {
         value={selectedMonth}
         max={maxValue}
       />
-    </>
+    </main>
   );
 }
 

@@ -1,7 +1,7 @@
 import { Card, Col, Row } from "react-bootstrap";
 import Dinero from "dinero.js";
 import moment from "moment";
-
+import "../components/TransactionItem.css";
 function TransactionItem({ date, amount, category }) {
   const price = Dinero({ amount, currency: "EUR" })
     .setLocale("fr-FR")
