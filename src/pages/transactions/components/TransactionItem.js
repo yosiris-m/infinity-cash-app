@@ -8,17 +8,19 @@ function TransactionItem({ date, amount, category }) {
     .toFormat();
   const dateFormatted = moment(date).format("LL");
   return (
-    <Col>
-      <Card className="m-3">
-        <Card.Header>{dateFormatted}</Card.Header>
-        <Card.Body>
-          <Row>
-            <Col>{category}</Col>
-            <Col>{price}</Col>
-          </Row>
-        </Card.Body>
-      </Card>
-    </Col>
+    <main className="mainItem">
+      <Col>
+        <Card className="m-3">
+          <Card.Header>{dateFormatted}</Card.Header>
+          <Card.Body>
+            <Row>
+              <Col className="category">{category}</Col>
+              <Col className="amount">{price}</Col>
+            </Row>
+          </Card.Body>
+        </Card>
+      </Col>
+    </main>
   );
 }
 

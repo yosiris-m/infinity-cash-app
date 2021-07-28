@@ -56,6 +56,7 @@ export default function App() {
           <Route path="/NewTransaction">
             <NewTransaction />
           </Route>
+          <Redirect to="/transactions" />
         </Switch>
       </div>
     </Router>

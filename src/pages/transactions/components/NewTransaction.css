@@ -1,17 +1,25 @@
 .buttonAdd {
   display: flex;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 100%;
   background-color: rgb(50, 197, 31);
   color: aliceblue;
-  font-size: 25px;
+  font-size: 23px;
   position: fixed;
+  z-index: 1;
   left: 50%;
-  top: 90%;
+  top: 93%;
   transform: translate(-50%);
 }
-.Footer {
-  padding-top: 35px;
+
+.NewAmount {
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+}
+
+.input {
+  width: 200px;
 }
