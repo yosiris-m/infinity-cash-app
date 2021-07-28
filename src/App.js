@@ -16,6 +16,7 @@ import img1 from "../src/images/cash-flow.svg";
 import img2 from "../src/images/calendar.svg";
 import img3 from "../src/images/binoculars.svg";
 import "../src/App.css";
+import NewTransaction from "./pages/transactions/components/NewTransaction";
 
 export default function App() {
   return (
@@ -36,6 +37,12 @@ export default function App() {
           </Nav.Item>
         </Nav>
 
+        <Nav.Item>
+          <Nav.Link href="/NewTransaction">
+            <div className="buttonAdd">+</div>
+          </Nav.Link>
+        </Nav.Item>
+
         <Switch>
           <Route path="/transactions">
             <Transactions />
@@ -46,7 +53,9 @@ export default function App() {
           <Route path="/reports">
             <Reports />
           </Route>
-          <Redirect to="/transactions" />
+          <Route path="/NewTransaction">
+            <NewTransaction />
+          </Route>
         </Switch>
       </div>
     </Router>
