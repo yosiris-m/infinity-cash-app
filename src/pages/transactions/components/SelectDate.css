@@ -1,3 +1,16 @@
-.month {
-  margin: 10px 5px 10px 35px;
+*main {
+  margin: 0;
+  padding: 0;
 }
+
+.month {
+  margin: 25px 5px 20px 35px;
+}
+
+/* @media all and (min-width: 1220px) {
+  .month {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+} */

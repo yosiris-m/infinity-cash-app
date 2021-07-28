@@ -5,6 +5,7 @@ import { getTransactions } from "../../services/transactions";
 import TotalTransaction from "./components/TotalTransaction";
 import SelectDate from "./components/SelectDate";
 import TransactionItem from "./components/TransactionItem";
+import AddNewTransaction from "./components/AddNewTransaction";
 
 function Transactions() {
   const now = moment().format("YYYY-MM");
@@ -36,6 +37,7 @@ function Transactions() {
           <TransactionItem key={transaction.id} {...transaction} />
         ))}
       </Row>
+      <AddNewTransaction />
     </>
   );
 }
