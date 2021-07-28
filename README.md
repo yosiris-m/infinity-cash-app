@@ -1,3 +1,17 @@
+# family-cash App
+
+Budget Manager and Expense Tracker app.
+
+## Features
+
+- Track and categorize transactions
+- Generate reports
+- Create budgets
+
+## Designs
+
+![Designs](./src/images/transaction.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
