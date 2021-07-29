@@ -12,15 +12,13 @@ function SelectDate({ initValue, maxValue, onSelect }) {
 
   return (
     <>
-      <main>
-        <input
-          className="month"
-          type="month"
-          onChange={onChange}
-          value={selectedMonth}
-          max={maxValue}
-        />
-      </main>
+      <input
+        className="month"
+        type="month"
+        onChange={onChange}
+        value={selectedMonth}
+        max={maxValue}
+      />
     </>
   );
 }

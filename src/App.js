@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 import {
   BrowserRouter as Router,
@@ -36,10 +36,9 @@ export default function App() {
             <Nav.Link href="/categories">Categories</Nav.Link>
           </Nav.Item>
         </Nav>
-
         <Nav.Item>
           <Nav.Link href="/NewTransaction">
-            <div className="buttonAdd">+</div>
+            <div className="buttonNewTransaction">+</div>
           </Nav.Link>
         </Nav.Item>
 
@@ -56,7 +55,7 @@ export default function App() {
           <Route path="/NewTransaction">
             <NewTransaction />
           </Route>
-          <Redirect to="/transactions" />
+          <Redirect to="/" />
         </Switch>
       </div>
     </Router>

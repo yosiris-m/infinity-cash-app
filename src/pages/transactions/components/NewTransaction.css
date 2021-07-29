@@ -1,25 +1,32 @@
-.buttonAdd {
-  display: flex;
-  justify-content: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 100%;
-  background-color: rgb(50, 197, 31);
-  color: aliceblue;
-  font-size: 23px;
-  position: fixed;
-  z-index: 1;
-  left: 50%;
-  top: 93%;
-  transform: translate(-50%);
-}
-
 .NewAmount {
   display: flex;
   flex-direction: column;
   margin-left: 25px;
+  margin-top: 40px;
 }
-
 .input {
   width: 200px;
+  background-color: rgb(184, 204, 248);
+  border: whitesmoke;
+}
+
+.AddAmount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.buttonAdd {
+  background-color: rgb(74, 199, 95);
+  color: rgb(14, 15, 15);
+  border: aliceblue;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+.buttonCancel {
+  background-color: rgb(247, 169, 201);
+  color: rgb(16, 18, 20);
+  border: aliceblue;
 }
