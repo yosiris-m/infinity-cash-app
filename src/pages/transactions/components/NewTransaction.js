@@ -2,16 +2,16 @@ import "../components/NewTransaction.css";
 import { useState } from "react";
 import SelectDate from "./SelectDate";
 import { Link } from "react-router-dom";
-// import SelectCategory from "./SelectCategory";
+import SelectCategory from "./SelectCategory";
 
 function NewTransaction() {
   const [amount, setAmount] = useState(0);
   const [showSelectCategory, setShowSelectCategory] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(false);
 
   const handleInput = (ev) => {
     const newAmount = ev.target.value;
     setAmount(newAmount);
-    console.log(newAmount);
   };
 
   const handleSelectDate = (selectedMonth) => {
@@ -20,14 +20,18 @@ function NewTransaction() {
 
   const handleSelectCategory = () => {
     setShowSelectCategory(true);
+    setSelectedCategory(true);
   };
 
   if (showSelectCategory) {
     return (
-      <div>
-        Category
-        <button onClick={() => setShowSelectCategory(false)}>Return</button>
-      </div>
+      <SelectCategory
+        onSelect={(category) => {
+          setShowSelectCategory(false);
+          setSelectedCategory(category.label);
+        }}
+        onCancel={() => setShowSelectCategory(false)}
+      />
     );
   }
 
@@ -44,6 +48,9 @@ function NewTransaction() {
         />
       </div>
       <SelectDate onSelect={handleSelectDate} />
+
+      <div>{selectedCategory}</div>
+
       <Link to="#" onClick={handleSelectCategory}>
         Select{" "}
       </Link>
