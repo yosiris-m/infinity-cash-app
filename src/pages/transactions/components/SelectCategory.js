@@ -14,7 +14,7 @@ function SelectCategory({ onSelect, onCancel }) {
     <div>
       <h2>Categories</h2>
       {categories.map((category, categories) => (
-        <div key={categories} onClick={() => onSelect(category)}>
+        <div key={categories} onClick={() => onSelect(category, category.id)}>
           {category.label}
         </div>
       ))}

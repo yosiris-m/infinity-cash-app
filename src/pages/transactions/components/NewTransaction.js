@@ -1,26 +1,29 @@
 import "../components/NewTransaction.css";
 import { useState } from "react";
-import SelectDate from "./SelectDate";
 import { Link } from "react-router-dom";
 import SelectCategory from "./SelectCategory";
+import { createTransaction } from "../../../services/transactions";
 
 function NewTransaction() {
   const [amount, setAmount] = useState(0);
   const [showSelectCategory, setShowSelectCategory] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedMonth, setSelectedMonth] = useState([]);
 
   const handleInput = (ev) => {
     const newAmount = ev.target.value;
     setAmount(newAmount);
   };
 
-  const handleSelectDate = (selectedMonth) => {
+  const handleSelectDate = (ev) => {
+    const selectedMonth = ev.target.value;
     console.log("selectedMonth", selectedMonth);
+    setSelectedMonth(selectedMonth);
   };
 
   const handleSelectCategory = () => {
     setShowSelectCategory(true);
-    setSelectedCategory(true);
+    setSelectedCategory();
   };
 
   if (showSelectCategory) {
@@ -28,12 +31,17 @@ function NewTransaction() {
       <SelectCategory
         onSelect={(category) => {
           setShowSelectCategory(false);
-          setSelectedCategory(category.label);
+          setSelectedCategory(category);
         }}
         onCancel={() => setShowSelectCategory(false)}
       />
     );
   }
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+    createTransaction(amount, selectedMonth, selectedCategory);
+  };
 
   return (
     <main className="AddAmount">
@@ -47,17 +55,24 @@ function NewTransaction() {
           onChange={handleInput}
         />
       </div>
-      <SelectDate onSelect={handleSelectDate} />
-
-      <div>{selectedCategory}</div>
-
+      {/* <SelectDate onSelect={handleSelectDate} value={selectedMonth} /> */}
+      <input
+        className="month"
+        type="month"
+        onChange={handleSelectDate}
+        value={selectedMonth}
+      />
       <Link to="#" onClick={handleSelectCategory}>
         Select{" "}
       </Link>
-
+      <div>{selectedCategory.label}</div>
       <div>
-        <button className="buttonCancel">Add</button>
-        <button className="buttonAdd">Cancel</button>
+        <button className="buttonCancel" type="submit" onClick={handleSubmit}>
+          Add
+        </button>
+        <button className="buttonAdd" type="submit">
+          Cancel
+        </button>
       </div>
     </main>
   );
