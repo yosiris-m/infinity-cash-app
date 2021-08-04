@@ -15,8 +15,8 @@ function TransactionItem({ date, amount, category }) {
           <Card.Header>{dateFormatted}</Card.Header>
           <Card.Body>
             <Row>
-              <Col className="category">{category}</Col>
-              <Col className="amount">{price}</Col>
+              <Col>{category}</Col>
+              <Col>{price}</Col>
             </Row>
           </Card.Body>
         </Card>

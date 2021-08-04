@@ -15,14 +15,14 @@ export function createTransaction(amount, date, category) {
   const body = {
     amount: amount,
     date: date,
-    categoryId: category,
+    categoryId: category.id,
   };
 
-  console.log(body);
+  console.log("body", body);
 
-  // return fetch(`${getBaseUrl()}/transaction`, {
-  //   method: "POST",
-  //   body: JSON.stringify(body),
-  //   headers: { "Content-Type": "application/json" },
-  // });
+  return fetch(`${getBaseUrl()}/transaction`, {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers: { "Content-Type": "application/json" },
+  });
 }

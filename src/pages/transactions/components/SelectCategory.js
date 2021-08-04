@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "../components/SelectCategory.css";
 import { getCategories } from "../../../services/categories";
 
 function SelectCategory({ onSelect, onCancel }) {
@@ -12,13 +13,19 @@ function SelectCategory({ onSelect, onCancel }) {
 
   return (
     <div>
-      <h2>Categories</h2>
+      <h2 className="titleCategory">Select category:</h2>
       {categories.map((category, categories) => (
-        <div key={categories} onClick={() => onSelect(category, category.id)}>
+        <div
+          className="category"
+          key={categories}
+          onClick={() => onSelect(category, category.id)}
+        >
           {category.label}
         </div>
       ))}
-      <button onClick={() => onCancel()}>Cancel</button>
+      <button className="CancelCategory" onClick={() => onCancel(categories)}>
+        Cancel
+      </button>
     </div>
   );
 }

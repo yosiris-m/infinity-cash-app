@@ -8,7 +8,7 @@ function NewTransaction() {
   const [amount, setAmount] = useState(0);
   const [showSelectCategory, setShowSelectCategory] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedMonth, setSelectedMonth] = useState([]);
+  const [selectedDate, setSelectedMonth] = useState("");
 
   const handleInput = (ev) => {
     const newAmount = ev.target.value;
@@ -16,9 +16,9 @@ function NewTransaction() {
   };
 
   const handleSelectDate = (ev) => {
-    const selectedMonth = ev.target.value;
-    console.log("selectedMonth", selectedMonth);
-    setSelectedMonth(selectedMonth);
+    const selected = ev.target.value;
+    console.log("selectedMonth", selected);
+    setSelectedMonth(selected);
   };
 
   const handleSelectCategory = () => {
@@ -38,9 +38,27 @@ function NewTransaction() {
     );
   }
 
+  const createdTransaction = () => {
+    let dateActuality = (selectedDate += 1);
+
+    if (selectedDate !== dateActuality) {
+      return (
+        <p>
+          Error en la operación por favor revice la fecha y vuelva a intentarlo
+        </p>
+      );
+    } else {
+      return <p>Operacion creada correctamente</p>;
+    }
+  };
+
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    createTransaction(amount, selectedMonth, selectedCategory);
+    createTransaction(amount, selectedDate, selectedCategory);
+  };
+
+  const handleReset = () => {
+    createTransaction("");
   };
 
   return (
@@ -55,22 +73,23 @@ function NewTransaction() {
           onChange={handleInput}
         />
       </div>
-      {/* <SelectDate onSelect={handleSelectDate} value={selectedMonth} /> */}
+
       <input
         className="month"
-        type="month"
+        type="date"
+        min="01-01-2021"
         onChange={handleSelectDate}
-        value={selectedMonth}
+        value={selectedDate}
       />
-      <Link to="#" onClick={handleSelectCategory}>
-        Select{" "}
+      <Link className="seletedCategory" to="#" onClick={handleSelectCategory}>
+        Select category{" "}
       </Link>
       <div>{selectedCategory.label}</div>
       <div>
         <button className="buttonCancel" type="submit" onClick={handleSubmit}>
           Add
         </button>
-        <button className="buttonAdd" type="submit">
+        <button className="buttonAdd" type="reset" onClick={handleReset}>
           Cancel
         </button>
       </div>
