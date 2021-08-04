@@ -6,8 +6,29 @@
 }
 .input {
   width: 200px;
-  background-color: rgb(184, 204, 248);
-  border: whitesmoke;
+  height: 35px;
+  border-radius: 1px solid;
+  display: flex;
+  padding-left: 50%;
+}
+
+.month {
+  background-color: rgb(222, 233, 255);
+  margin-right: 50px;
+}
+
+.seletedCategory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  width: 200px;
+  height: 35px;
+  text-decoration: none;
+  background-color: rgb(222, 233, 255);
+  color: black;
+  margin-left: 25px;
+  margin-bottom: 15px;
 }
 
 .AddAmount {
@@ -18,15 +39,19 @@
 }
 
 .buttonAdd {
-  background-color: rgb(74, 199, 95);
+  background-color: rgb(250, 197, 206);
   color: rgb(14, 15, 15);
   border: aliceblue;
   margin-left: 100px;
   margin-top: 50px;
+  width: 60px;
+  height: 35px;
 }
 
 .buttonCancel {
-  background-color: rgb(247, 169, 201);
+  background-color: rgb(198, 238, 105);
   color: rgb(16, 18, 20);
   border: aliceblue;
+  width: 60px;
+  height: 35px;
 }

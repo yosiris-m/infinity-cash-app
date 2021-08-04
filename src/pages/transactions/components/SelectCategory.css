@@ -1,0 +1,19 @@
+.titleCategory {
+  display: flex;
+  justify-content: center;
+  padding-top: 35px;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  margin: 20px 25px 30px 50px;
+}
+
+.CancelCategory {
+  border: aliceblue;
+  background-color: pink;
+  margin-left: 160px;
+}
