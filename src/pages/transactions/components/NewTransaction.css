@@ -9,12 +9,22 @@
   height: 35px;
   border-radius: 1px solid;
   display: flex;
-  padding-left: 50%;
+  padding-left: 40%;
 }
 
-.month {
+.monthNewTransaction {
   background-color: rgb(222, 233, 255);
-  margin-right: 50px;
+  margin: 20px 0px 25px 25px;
+  padding-right: 28px;
+  padding-left: 35px;
+  border: aliceblue;
+  border-radius: 5px;
+  width: 200px;
+  height: 35px;
+}
+
+.monthNewTransaction:hover {
+  color: rgb(0, 89, 255);
 }
 
 .seletedCategory {
@@ -38,7 +48,7 @@
   margin-top: 30px;
 }
 
-.buttonAdd {
+.buttonCancel {
   background-color: rgb(250, 197, 206);
   color: rgb(14, 15, 15);
   border: aliceblue;
@@ -48,10 +58,14 @@
   height: 35px;
 }
 
-.buttonCancel {
+.buttonAdd {
   background-color: rgb(198, 238, 105);
   color: rgb(16, 18, 20);
   border: aliceblue;
   width: 60px;
   height: 35px;
+}
+
+.buttonAdd:hover {
+  background-color: rgb(105, 238, 138);
 }

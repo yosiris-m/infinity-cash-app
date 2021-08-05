@@ -25,7 +25,9 @@ export default function App() {
         <Nav variant="tabs" defaultActiveKey="/home" className="transaction">
           <Nav.Item>
             <img src={img1} alt="cash-flow" className="transactionImg" />
-            <Nav.Link href="/transactions">Transactions</Nav.Link>
+            <Nav.Link href="/transactions" className="transactions">
+              Transactions
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <img src={img2} alt="calendar" className="reportsImg" />

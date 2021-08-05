@@ -5,6 +5,12 @@
 
 .month {
   margin: 25px 5px 20px 75px;
+  border: 1px solid rgb(177, 194, 233);
+  background-color: rgb(215, 224, 241);
+  padding-left: 10px;
+}
+.month:hover {
+  color: rgb(0, 89, 255);
 }
 
 /* @media all and (min-width: 1220px) {
