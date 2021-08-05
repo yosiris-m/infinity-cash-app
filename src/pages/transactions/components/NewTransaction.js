@@ -1,14 +1,21 @@
 import "../components/NewTransaction.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import SelectCategory from "./SelectCategory";
 import { createTransaction } from "../../../services/transactions";
+import moment from "moment";
+import Transactions from "../Transactions";
+import Categories from "../../categories/Categories";
+import Reports from "../../reports/Reports";
 
 function NewTransaction() {
-  const [amount, setAmount] = useState(0);
+  const now = moment().format("YYYY-MM-DD");
+  const history = useHistory();
+
+  const [amount, setAmount] = useState();
   const [showSelectCategory, setShowSelectCategory] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedDate, setSelectedMonth] = useState("");
+  const [selectedDate, setSelectedDate] = useState(now);
 
   const handleInput = (ev) => {
     const newAmount = ev.target.value;
@@ -16,9 +23,9 @@ function NewTransaction() {
   };
 
   const handleSelectDate = (ev) => {
-    const selected = ev.target.value;
-    console.log("selectedMonth", selected);
-    setSelectedMonth(selected);
+    const selectedDate = ev.target.value;
+    console.log("selectedMonth", selectedDate);
+    setSelectedDate(selectedDate);
   };
 
   const handleSelectCategory = () => {
@@ -33,33 +40,22 @@ function NewTransaction() {
           setShowSelectCategory(false);
           setSelectedCategory(category);
         }}
-        onCancel={() => setShowSelectCategory(false)}
+        onCancel={() => {
+          setShowSelectCategory(false);
+          setSelectedCategory("");
+        }}
       />
     );
   }
-
-  const createdTransaction = () => {
-    let dateActuality = (selectedDate += 1);
-
-    if (selectedDate !== dateActuality) {
-      return (
-        <p>
-          Error en la operación por favor revice la fecha y vuelva a intentarlo
-        </p>
-      );
-    } else {
-      return <p>Operacion creada correctamente</p>;
-    }
-  };
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
     createTransaction(amount, selectedDate, selectedCategory);
   };
 
-  const handleReset = () => {
-    createTransaction("");
-  };
+  // const handleCancel = () => {
+  //   console.log("hace click amount, date, category");
+  // };
 
   return (
     <main className="AddAmount">
@@ -71,25 +67,32 @@ function NewTransaction() {
           className="input"
           value={amount}
           onChange={handleInput}
+          placeholder="-350"
         />
       </div>
 
       <input
-        className="month"
+        className="monthNewTransaction"
         type="date"
-        min="01-01-2021"
+        max={now}
         onChange={handleSelectDate}
         value={selectedDate}
       />
       <Link className="seletedCategory" to="#" onClick={handleSelectCategory}>
-        Select category{" "}
+        Select category
       </Link>
       <div>{selectedCategory.label}</div>
       <div>
-        <button className="buttonCancel" type="submit" onClick={handleSubmit}>
+        <button className="buttonAdd" type="submit" onClick={handleSubmit}>
           Add
         </button>
-        <button className="buttonAdd" type="reset" onClick={handleReset}>
+        <button
+          className="buttonCancel"
+          type="cancel"
+          onClick={() => {
+            history.goBack(Categories, Reports);
+          }}
+        >
           Cancel
         </button>
       </div>
