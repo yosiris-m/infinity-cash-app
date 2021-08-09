@@ -9,14 +9,7 @@
   background-color: rgb(215, 224, 241);
   padding-left: 10px;
 }
+
 .month:hover {
   color: rgb(0, 89, 255);
 }
-
-/* @media all and (min-width: 1220px) {
-  .month {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-} */

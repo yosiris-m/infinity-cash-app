@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .titleCategory {
   display: flex;
   justify-content: center;
@@ -10,10 +15,55 @@
   display: flex;
   justify-content: center;
   margin: 20px 25px 30px 50px;
+  cursor: pointer;
+}
+
+.category:hover {
+  color: rgb(44, 110, 235);
 }
 
 .CancelCategory {
   border: aliceblue;
   background-color: pink;
-  margin-left: 160px;
+  cursor: pointer;
+  margin-left: 45%;
+  width: 60px;
+}
+
+.CancelCategory:hover {
+  background-color: rgb(230, 140, 192);
+}
+
+@media all and (min-width: 768px) {
+  .titleCategory {
+    font-size: 22px;
+    margin-top: 30px;
+  }
+  .category {
+    margin: 35px 25px 40px 50px;
+    font-size: 22px;
+  }
+
+  .CancelCategory {
+    margin-left: 44%;
+    width: 120px;
+    font-size: 22px;
+  }
+}
+
+@media all and (min-width: 1220px) {
+  .titleCategory {
+    font-size: 18px;
+  }
+
+  .category {
+    margin: 30px 25px 30px 50px;
+    font-size: 15px;
+  }
+
+  .CancelCategory {
+    width: 70px;
+    font-size: 15px;
+    margin-left: 48%;
+  }
 }

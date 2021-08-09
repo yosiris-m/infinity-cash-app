@@ -3,14 +3,6 @@
   margin-left: 35px;
 }
 
-/* @media all and (min-width: 1220px) {
-  .totalAmount {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-} */
-
 .barIncome {
   color: rgb(104, 248, 20);
   margin-left: 45px;
@@ -23,7 +15,6 @@
 
 .barExpenses {
   background-color: red;
-
   margin-left: 50px;
 }
 
@@ -31,18 +22,7 @@ progress {
   width: 120px;
   height: 25px;
   -webkit-appearance: none;
-
-  /* 
-  /* Reinicializar estilos */
-
-  /* appearance: none;
-  -moz-appearance: none;;*/
-  /* -appearance: none; */
 }
-
-/* /* barIncome[value]::-webkit-progress-bar {
-  background-color: rgb(231, 235, 231);
-} */
 
 progress::-webkit-progress-value {
   background-color: rgb(62, 216, 11);
@@ -55,19 +35,3 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
   background-color: rgb(33, 204, 17);
 }
-/* progress[value] {
-  width: 120px;
-  height: 25px;
-
-  /* Reinicializar estilos */
-
-/* appearance: none;
-  -webkit-appearance: none;
-}
-
-progress[value]::-webkit-progress-value {
-  background-color: rgb(212, 37, 6);
-}
-progress[value]::-webkit-progress-bar {
-  background-color: rgb(233, 232, 230);
-}  */
