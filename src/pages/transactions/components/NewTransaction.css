@@ -52,7 +52,7 @@
   background-color: rgb(250, 197, 206);
   color: rgb(14, 15, 15);
   border: aliceblue;
-  margin-left: 100px;
+  margin-left: 20px;
   margin-top: 50px;
   width: 60px;
   height: 35px;
@@ -64,6 +64,7 @@
   border: aliceblue;
   width: 60px;
   height: 35px;
+  margin-left: 80px;
 }
 
 .buttonAdd:hover {

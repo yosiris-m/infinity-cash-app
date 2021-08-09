@@ -4,7 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 import SelectCategory from "./SelectCategory";
 import { createTransaction } from "../../../services/transactions";
 import moment from "moment";
-import Transactions from "../Transactions";
 import Categories from "../../categories/Categories";
 import Reports from "../../reports/Reports";
 
@@ -24,7 +23,6 @@ function NewTransaction() {
 
   const handleSelectDate = (ev) => {
     const selectedDate = ev.target.value;
-    console.log("selectedMonth", selectedDate);
     setSelectedDate(selectedDate);
   };
 
@@ -53,10 +51,6 @@ function NewTransaction() {
     createTransaction(amount, selectedDate, selectedCategory);
   };
 
-  // const handleCancel = () => {
-  //   console.log("hace click amount, date, category");
-  // };
-
   return (
     <main className="AddAmount">
       <h4>New Transaction</h4>
@@ -83,9 +77,6 @@ function NewTransaction() {
       </Link>
       <div>{selectedCategory.label}</div>
       <div>
-        <button className="buttonAdd" type="submit" onClick={handleSubmit}>
-          Add
-        </button>
         <button
           className="buttonCancel"
           type="cancel"
@@ -94,6 +85,9 @@ function NewTransaction() {
           }}
         >
           Cancel
+        </button>
+        <button className="buttonAdd" type="submit" onClick={handleSubmit}>
+          Add
         </button>
       </div>
     </main>
