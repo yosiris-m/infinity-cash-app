@@ -1,6 +1,6 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { Row } from "react-bootstrap";
+import { Nav, Row } from "react-bootstrap";
 import { getTransactions } from "../../services/transactions";
 import TotalTransaction from "./components/TotalTransaction";
 import SelectDate from "./components/SelectDate";
@@ -36,6 +36,11 @@ function Transactions() {
           <TransactionItem key={transaction.id} {...transaction} />
         ))}
       </Row>
+      <Nav.Item>
+        <Nav.Link href="/NewTransaction">
+          <div className="buttonNewTransaction">+</div>
+        </Nav.Link>
+      </Nav.Item>
     </>
   );
 }

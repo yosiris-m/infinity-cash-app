@@ -23,6 +23,7 @@ function SelectCategory({ onSelect, onCancel }) {
           {category.label}
         </div>
       ))}
+
       <button className="CancelCategory" onClick={() => onCancel()}>
         Cancel
       </button>

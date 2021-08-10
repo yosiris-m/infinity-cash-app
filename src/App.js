@@ -38,12 +38,6 @@ export default function App() {
             <Nav.Link href="/categories">Categories</Nav.Link>
           </Nav.Item>
         </Nav>
-        <Nav.Item>
-          <Nav.Link href="/NewTransaction">
-            <div className="buttonNewTransaction">+</div>
-          </Nav.Link>
-        </Nav.Item>
-
         <Switch>
           <Route path="/transactions">
             <Transactions />

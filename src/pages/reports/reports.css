@@ -1,17 +1,22 @@
 .allTime {
   background-color: rgb(228, 228, 228);
   height: 50px;
-  width: 340px;
   margin: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+@media all and (min-width: 768px) {
+  .allTime {
+    height: 50px;
+    margin: 20px 10px 10px;
+  }
+}
+
 @media all and (min-width: 1220px) {
   .allTime {
     height: 40px;
-    width: 98%;
     margin: 10px 10px 10px;
   }
-} ;
+}
