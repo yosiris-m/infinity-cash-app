@@ -4,14 +4,12 @@
   margin-left: 25px;
   margin-top: 40px;
 }
-.input {
+.inputTransaction {
   width: 200px;
   height: 35px;
-  border-radius: 1px solid;
   display: flex;
   padding-left: 40%;
 }
-
 .monthNewTransaction {
   background-color: rgb(222, 233, 255);
   margin: 20px 0px 25px 25px;
@@ -21,6 +19,7 @@
   border-radius: 5px;
   width: 200px;
   height: 35px;
+  border: 1px solid gray;
 }
 
 .monthNewTransaction:hover {
@@ -39,6 +38,7 @@
   color: black;
   margin-left: 25px;
   margin-bottom: 15px;
+  border: 1px solid gray;
 }
 
 .AddAmount {
@@ -49,27 +49,28 @@
 }
 
 .buttonCancel {
-  background-color: rgb(250, 197, 206);
+  background-color: rgb(240, 85, 110);
   color: rgb(14, 15, 15);
-  border: aliceblue;
   margin-left: 20px;
   margin-top: 50px;
-  width: 60px;
   height: 35px;
+  padding-top: 5px;
 }
+
 .buttonCancel:hover {
-  background-color: rgb(243, 161, 175);
+  background-color: rgb(194, 31, 58);
 }
 
 .buttonAdd {
-  background-color: rgb(198, 238, 105);
+  background-color: rgb(45, 185, 10);
   color: rgb(16, 18, 20);
-  border: aliceblue;
-  width: 60px;
   height: 35px;
-  margin-left: 80px;
+  margin-left: 50px;
+  margin-top: 50px;
+  border: rgb(17, 17, 17);
+  width: 75px;
 }
 
 .buttonAdd:hover {
-  background-color: rgb(105, 238, 138);
+  background-color: rgb(34, 216, 80);
 }

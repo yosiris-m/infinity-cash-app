@@ -58,10 +58,10 @@ function NewTransaction() {
         <label> Amount</label>
         <input
           type="text"
-          className="input"
+          className="inputTransaction"
           value={amount}
           onChange={handleInput}
-          placeholder="-350"
+          placeholder="-350 00"
         />
       </div>
 
@@ -78,17 +78,24 @@ function NewTransaction() {
       <div>{selectedCategory.label}</div>
       <div>
         <button
-          className="buttonCancel"
-          type="cancel"
+          type="button"
+          class="btn btn-danger buttonCancel"
           onClick={() => {
             history.goBack(Categories, Reports);
           }}
         >
           Cancel
         </button>
-        <button className="buttonAdd" type="submit" onClick={handleSubmit}>
+        <button
+          type="submit"
+          class="btn btn-danger buttonAdd"
+          onClick={handleSubmit}
+        >
           Add
         </button>
+        {/* <button className="buttonAdd" type="submit" onClick={handleSubmit}>
+          Add
+        </button> */}
       </div>
     </main>
   );
