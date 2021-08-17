@@ -25,7 +25,7 @@ function SelectCategory({ onSelect, onCancel }) {
       ))}
       <button
         type="button"
-        class="btn btn-danger CancelCategory"
+        className="btn btn-danger CancelCategory"
         onClick={() => onCancel()}
       >
         Cancel

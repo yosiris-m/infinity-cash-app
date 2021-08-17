@@ -11,7 +11,7 @@ function NewTransaction() {
   const now = moment().format("YYYY-MM-DD");
   const history = useHistory();
 
-  const [amount, setAmount] = useState();
+  const [amount, setAmount] = useState("");
   const [showSelectCategory, setShowSelectCategory] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedDate, setSelectedDate] = useState(now);
@@ -49,22 +49,25 @@ function NewTransaction() {
   const handleSubmit = (ev) => {
     ev.preventDefault();
     createTransaction(amount, selectedDate, selectedCategory);
+    setAmount("");
+    setSelectedDate("");
+    setSelectedCategory("");
   };
 
   return (
     <main className="AddAmount">
       <h4>New Transaction</h4>
-      <div className="NewAmount">
-        <label> Amount</label>
+
+      <div className="form-group NewAmount">
+        <label htmlFor="inputdefault">Amount</label>
         <input
+          className="form-control inputTransaction"
           type="text"
-          className="inputTransaction"
           value={amount}
           onChange={handleInput}
           placeholder="-350 00"
         />
       </div>
-
       <input
         className="monthNewTransaction"
         type="date"
@@ -75,11 +78,11 @@ function NewTransaction() {
       <Link className="seletedCategory" to="#" onClick={handleSelectCategory}>
         Select category
       </Link>
-      <div>{selectedCategory.label}</div>
+      <div className="categorySelected">{selectedCategory.label}</div>
       <div>
         <button
           type="button"
-          class="btn btn-danger buttonCancel"
+          className="btn btn-danger buttonCancel"
           onClick={() => {
             history.goBack(Categories, Reports);
           }}
@@ -88,14 +91,11 @@ function NewTransaction() {
         </button>
         <button
           type="submit"
-          class="btn btn-danger buttonAdd"
+          className="btn btn-danger buttonAdd"
           onClick={handleSubmit}
         >
           Add
         </button>
-        {/* <button className="buttonAdd" type="submit" onClick={handleSubmit}>
-          Add
-        </button> */}
       </div>
     </main>
   );

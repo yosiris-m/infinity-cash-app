@@ -1,6 +1,6 @@
 import "../reports/reports.css";
 
-import TotalTransaction from "../transactions/components/TotalTransaction";
+// import TotalTransaction from "../transactions/components/TotalTransaction";
 
 function Reports() {
   return (

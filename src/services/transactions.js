@@ -8,9 +8,9 @@ export function getTransactions({ from, to }) {
 }
 
 export function createTransaction(amount, date, category) {
-  console.log("amount ->", amount);
-  console.log("date ->", date);
-  console.log("category ->", category);
+  // console.log("amount ->", amount);
+  // console.log("date ->", date);
+  // console.log("category ->", category);
 
   const body = {
     amount: amount,
@@ -18,7 +18,7 @@ export function createTransaction(amount, date, category) {
     categoryId: category.id,
   };
 
-  console.log("body", body);
+  // console.log("body", body);
 
   return fetch(`${getBaseUrl()}/transaction`, {
     method: "POST",

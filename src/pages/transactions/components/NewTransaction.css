@@ -48,6 +48,15 @@
   margin-top: 30px;
 }
 
+.categorySelected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(194, 31, 58);
+  font-weight: bold;
+  font-size: 19px;
+}
+
 .buttonCancel {
   background-color: rgb(240, 85, 110);
   color: rgb(14, 15, 15);
