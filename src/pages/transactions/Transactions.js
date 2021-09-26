@@ -1,6 +1,6 @@
 import moment from "moment";
 import { useEffect, useState } from "react";
-import { Nav, Row } from "react-bootstrap";
+import { Container, Nav, Row } from "react-bootstrap";
 import { getTransactions } from "../../services/transactions";
 import TotalTransaction from "./components/TotalTransaction";
 import SelectDate from "./components/SelectDate";
@@ -27,21 +27,37 @@ function Transactions() {
     fetchTransactions(now);
   }, [now]);
 
+  console.log("transactions ->", transactions);
+  const transactionsByDate = {};
+  for (const transaction of transactions) {
+    if (!transactionsByDate[transaction.date]) {
+      transactionsByDate[transaction.date] = [];
+    }
+    transactionsByDate[transaction.date].push(transaction);
+  }
+  console.log("transactionsByDate ->", transactionsByDate);
+
   return (
-    <>
+    <Container>
       <SelectDate initValue={now} maxValue={now} onSelect={handleSelectDate} />
       <TotalTransaction transactions={transactions} />
+
       <Row xs={1} sm={2}>
-        {transactions.map((transaction) => (
-          <TransactionItem key={transaction.id} {...transaction} />
+        {Object.keys(transactionsByDate).map((date, idx) => (
+          <TransactionItem
+            key={idx}
+            date={date}
+            transactions={transactionsByDate[date]}
+          />
         ))}
       </Row>
+
       <Nav.Item>
         <Nav.Link href="/NewTransaction">
           <div className="buttonNewTransaction">+</div>
         </Nav.Link>
       </Nav.Item>
-    </>
+    </Container>
   );
 }
 

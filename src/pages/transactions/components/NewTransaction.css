@@ -1,15 +1,58 @@
-.NewAmount {
-  display: flex;
-  flex-direction: column;
-  margin-left: 25px;
-  margin-top: 40px;
+.title {
+  margin: 30px 0 35px 25px;
 }
+/* 
+.item1 {
+  padding-right: 5px;
+} */
+
+.options {
+  background-color: rgb(222, 233, 255);
+  margin: 20px 0px 25px 25px;
+  padding-right: 28px;
+  padding-left: 35px;
+  border: aliceblue;
+  border-radius: 5px;
+  width: 200px;
+  height: 35px;
+  border: 1px solid gray;
+}
+
+.wrapper {
+
+  width: 250px;
+  height: 390px;
+  background-color: rgb(205, 205, 211);
+ 
+ 
+}
+
+.selectExpIncome {
+  color: rgb(0, 89, 255);
+  
+  
+}
+
+.options {
+  padding-left: 5px;
+
+}
+
+.options:hover {
+  color: rgb(0, 89, 255);
+ 
+}
+
 .inputTransaction {
   width: 200px;
   height: 35px;
   display: flex;
-  padding-left: 40%;
+  padding-left: 35%;
+  margin-left: 25px;
+  border: 1px solid gray;
+  
 }
+
 .monthNewTransaction {
   background-color: rgb(222, 233, 255);
   margin: 20px 0px 25px 25px;

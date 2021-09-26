@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../components/SelectCategory.css";
 import { getCategories } from "../../../services/categories";
 
-function SelectCategory({ onSelect, onCancel }) {
+function SelectCategory({ onSelect, onCancel, transactionType }) {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -11,10 +11,14 @@ function SelectCategory({ onSelect, onCancel }) {
     });
   }, []);
 
+  const filteredCategories = categories.filter(
+    (category) => category.type === transactionType
+  );
+
   return (
     <div>
       <h2 className="titleCategory">Select category:</h2>
-      {categories.map((category, categories) => (
+      {filteredCategories.map((category, categories) => (
         <div
           className="category"
           key={categories}

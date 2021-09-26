@@ -1,21 +1,21 @@
 .totalAmount1 {
   color: rgb(29, 133, 8);
-  margin-left: 35px;
+ 
 }
 
 .barIncome {
   color: rgb(104, 248, 20);
-  margin-left: 45px;
+ 
 }
 
 .totalAmount2 {
   color: red;
-  margin-left: 35px;
+
 }
 
 .barExpenses {
   background-color: red;
-  margin-left: 50px;
+ 
 }
 
 progress {

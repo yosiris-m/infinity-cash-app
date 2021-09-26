@@ -1,53 +1,55 @@
 import Dinero from "dinero.js";
-import "../components/totalTransaction.css";
+import { ProgressBar } from "react-bootstrap";
+import "../components/TotalTransaction.css";
 
 function TotalTransaction({ transactions }) {
   let income = 0;
   let expenses = 0;
 
   for (const transaction of transactions) {
-    if (transaction.amount > 0) {
+    if (transaction.type === "income") {
       income += transaction.amount;
     } else {
       expenses += transaction.amount;
     }
   }
 
-  const absExpenses = Math.abs(expenses);
-  const total = income + absExpenses;
+  const total = income + expenses;
 
   return (
     <main className="totalAmount">
       <div className="totalAmount1">
         Income:
-        <p>
+        <div>
           {Dinero({ amount: income, currency: "EUR" })
             .setLocale("fr-FR")
             .toFormat()}
 
-          <progress
+          {/* <progress
             className="barIncome"
             max={total}
             value={income}
             alt="ARIA"
-          ></progress>
-        </p>
+          ></progress> */}
+          <ProgressBar variant="success" max={total} now={income} />
+        </div>
       </div>
       <div className="totalAmount2">
         Expenses:
-        <p className="expenses">
+        <div className="expenses">
           {Dinero({ amount: expenses, currency: "EUR" })
             .setLocale("fr-FR")
             .toFormat()}
 
-          <progress
+          {/* <progress
             className="barExpenses"
             id="barExpenses"
             max={total}
-            value={absExpenses}
+            value={expenses}
             alt="ARIA"
-          ></progress>
-        </p>
+          ></progress> */}
+          <ProgressBar variant="danger" max={total} now={expenses} />
+        </div>
       </div>
     </main>
   );
