@@ -4,8 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import SelectCategory from "./SelectCategory";
 import { createTransaction } from "../../../services/transactions";
 import moment from "moment";
-import Categories from "../../categories/Categories";
-import Reports from "../../reports/Reports";
+import { FormControl, InputGroup } from "react-bootstrap";
 
 function NewTransaction() {
   const now = moment().format("YYYY-MM-DD");
@@ -15,8 +14,9 @@ function NewTransaction() {
   const [showSelectCategory, setShowSelectCategory] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedDate, setSelectedDate] = useState(now);
+  const [transactionType, setTransactionType] = useState("expense");
 
-  const handleInput = (ev) => {
+  const handleInputAmount = (ev) => {
     const newAmount = ev.target.value;
     setAmount(newAmount);
   };
@@ -31,6 +31,11 @@ function NewTransaction() {
     setSelectedCategory();
   };
 
+  const handleSelectTransactionType = (ev) => {
+    setTransactionType(ev.target.value);
+    setSelectedCategory("");
+  };
+
   if (showSelectCategory) {
     return (
       <SelectCategory
@@ -42,60 +47,87 @@ function NewTransaction() {
           setShowSelectCategory(false);
           setSelectedCategory("");
         }}
+        transactionType={transactionType}
       />
     );
   }
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
-    createTransaction(amount, selectedDate, selectedCategory);
-    setAmount("");
-    setSelectedDate("");
-    setSelectedCategory("");
+    createTransaction(amount, selectedDate, selectedCategory, transactionType)
+      .then(() => {
+        setAmount("");
+        setSelectedDate(now);
+        setSelectedCategory("");
+        history.push("/transactions");
+      })
+      .catch((error) => {
+        console.error(error); // TODO print error
+      });
   };
 
   return (
     <main className="AddAmount">
-      <h4>New Transaction</h4>
+      <h4 className="title">Create a new transaction</h4>
+      <div className="wrapper">
+        <div className="form-group NewAmount">
+          <select
+            className="options"
+            value={transactionType}
+            onChange={handleSelectTransactionType}
+          >
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          {/* <input
+            type="number"
+            min="1"
+            step="any"
+            value={amount}
+            onChange={handleInput}
+            placeholder="0.00"
+          /> */}
+          <InputGroup className="mb-3">
+            <FormControl
+              type="number"
+              min="1"
+              placeholder="Amount"
+              value={amount}
+              onChange={handleInputAmount}
+            />
+            <InputGroup.Text>€</InputGroup.Text>
+          </InputGroup>
+        </div>
 
-      <div className="form-group NewAmount">
-        <label htmlFor="inputdefault">Amount</label>
         <input
-          className="form-control inputTransaction"
-          type="text"
-          value={amount}
-          onChange={handleInput}
-          placeholder="-350 00"
+          className="monthNewTransaction"
+          type="date"
+          max={now}
+          onChange={handleSelectDate}
+          value={selectedDate}
         />
-      </div>
-      <input
-        className="monthNewTransaction"
-        type="date"
-        max={now}
-        onChange={handleSelectDate}
-        value={selectedDate}
-      />
-      <Link className="seletedCategory" to="#" onClick={handleSelectCategory}>
-        Select category
-      </Link>
-      <div className="categorySelected">{selectedCategory.label}</div>
-      <div>
-        <button
-          type="button"
-          className="btn btn-danger buttonCancel"
-          onClick={() => {
-            history.goBack(Categories, Reports);
-          }}
-        >
-          Cancel
-        </button>
-        <button
-          type="submit"
-          className="btn btn-danger buttonAdd"
-          onClick={handleSubmit}
-        >
-          Add
-        </button>
+        <Link className="seletedCategory" to="#" onClick={handleSelectCategory}>
+          Select category
+        </Link>
+        <div className="categorySelected">{selectedCategory.label}</div>
+        <div>
+          <button
+            type="button"
+            className="btn btn-danger buttonCancel"
+            onClick={() => {
+              history.goBack();
+            }}
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="btn btn-danger buttonAdd"
+            onClick={handleSubmit}
+          >
+            Add
+          </button>
+        </div>
       </div>
     </main>
   );
