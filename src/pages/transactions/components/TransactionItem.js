@@ -18,7 +18,7 @@ function TransactionItem({ date, transactions }) {
             </thead>
             <tbody>
               {transactions.map((transaction, idx) => {
-                const { category, amount, type } = transaction;
+                const { category, amount, type, image } = transaction;
 
                 // let className;
                 // if (type === "income") {
@@ -35,6 +35,9 @@ function TransactionItem({ date, transactions }) {
                   .toFormat();
                 return (
                   <tr key={idx}>
+                    <td>
+                      <i class={`fas fa-${image}`}></i>
+                    </td>
                     <td>{category}</td>
                     <td className={styles[type]}>{price}</td>
                   </tr>

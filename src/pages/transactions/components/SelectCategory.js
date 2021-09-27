@@ -24,6 +24,7 @@ function SelectCategory({ onSelect, onCancel, transactionType }) {
           key={categories}
           onClick={() => onSelect(category, category.id)}
         >
+          <i class={`fas fa-${category.image}`}></i>
           {category.label}
         </div>
       ))}
