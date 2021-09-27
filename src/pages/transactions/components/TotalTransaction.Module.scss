@@ -1,0 +1,52 @@
+@import "/src/styles/core/variables";
+.container {
+  font-family: $font-title;
+  padding: 0 1rem;
+}
+
+.totalAmount {
+  color: #198754;
+  display: flex;
+  flex-direction: row;
+}
+
+.barBoxIncome {
+  width: 80rem;
+  padding-left: 0.8rem;
+  padding-top: 1.2rem;
+}
+
+.barIncome {
+  height: 2rem;
+}
+
+.boxIncome {
+  @media all and (min-width: 1220px) {
+    width: 6.5rem;
+  }
+}
+
+.totalExpense {
+  color: #dc3545;
+  display: flex;
+  flex-direction: row;
+}
+
+.boxExpense {
+  display: flex;
+  flex-direction: column;
+  width: 3.5rem;
+
+  @media all and (min-width: 1220px) {
+    width: 5rem;
+  }
+}
+.barBoxExpense {
+  width: 80rem;
+  padding-left: 2rem;
+  padding-top: 1.2rem;
+}
+
+.barExpense {
+  height: 2rem;
+}

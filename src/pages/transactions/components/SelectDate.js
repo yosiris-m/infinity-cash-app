@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../components/SelectDate.css";
+import styles from "../components/SelectDate.module.scss";
 
 function SelectDate({ initValue, maxValue, onSelect }) {
   const [selectedMonth, setSelectedMonth] = useState(initValue);
@@ -13,7 +13,7 @@ function SelectDate({ initValue, maxValue, onSelect }) {
   return (
     <>
       <input
-        className="month"
+        className={styles.month}
         type="month"
         onChange={onChange}
         value={selectedMonth}

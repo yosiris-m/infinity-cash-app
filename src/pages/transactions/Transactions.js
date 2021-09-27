@@ -5,6 +5,7 @@ import { getTransactions } from "../../services/transactions";
 import TotalTransaction from "./components/TotalTransaction";
 import SelectDate from "./components/SelectDate";
 import TransactionItem from "./components/TransactionItem";
+import styles from "./Transaction.module.scss";
 
 function Transactions() {
   const now = moment().format("YYYY-MM");
@@ -41,7 +42,7 @@ function Transactions() {
     <Container>
       <SelectDate initValue={now} maxValue={now} onSelect={handleSelectDate} />
       <TotalTransaction transactions={transactions} />
-
+      <p className={styles.summary}>Resumen transaciones </p>
       <Row xs={1} sm={2}>
         {Object.keys(transactionsByDate).map((date, idx) => (
           <TransactionItem
@@ -54,7 +55,7 @@ function Transactions() {
 
       <Nav.Item>
         <Nav.Link href="/NewTransaction">
-          <div className="buttonNewTransaction">+</div>
+          <div className={styles.buttonNewTransaction}>+</div>
         </Nav.Link>
       </Nav.Item>
     </Container>

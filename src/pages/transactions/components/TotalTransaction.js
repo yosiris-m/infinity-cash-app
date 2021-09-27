@@ -1,6 +1,6 @@
 import Dinero from "dinero.js";
 import { ProgressBar } from "react-bootstrap";
-import "../components/TotalTransaction.css";
+import styles from "../components/TotalTransaction.Module.scss";
 
 function TotalTransaction({ transactions }) {
   let income = 0;
@@ -17,38 +17,39 @@ function TotalTransaction({ transactions }) {
   const total = income + expenses;
 
   return (
-    <main className="totalAmount">
-      <div className="totalAmount1">
-        Income:
-        <div>
+    <main className={styles.container}>
+      <div className={styles.totalAmount}>
+        <div className={styles.boxIncome}>
+          <span>Ingresos: </span>
           {Dinero({ amount: income, currency: "EUR" })
             .setLocale("fr-FR")
             .toFormat()}
-
-          {/* <progress
-            className="barIncome"
+        </div>
+        <div className={styles.barBoxIncome}>
+          <ProgressBar
+            variant="success"
             max={total}
-            value={income}
-            alt="ARIA"
-          ></progress> */}
-          <ProgressBar variant="success" max={total} now={income} />
+            now={income}
+            className={styles.barIncome}
+          />{" "}
         </div>
       </div>
-      <div className="totalAmount2">
-        Expenses:
-        <div className="expenses">
+
+      <div className={styles.totalExpense}>
+        <div className={styles.boxExpense}>
+          <span>Gastos: </span>
           {Dinero({ amount: expenses, currency: "EUR" })
             .setLocale("fr-FR")
-            .toFormat()}
+            .toFormat()}{" "}
+        </div>
 
-          {/* <progress
-            className="barExpenses"
-            id="barExpenses"
+        <div className={styles.barBoxExpense}>
+          <ProgressBar
+            variant="danger"
             max={total}
-            value={expenses}
-            alt="ARIA"
-          ></progress> */}
-          <ProgressBar variant="danger" max={total} now={expenses} />
+            now={expenses}
+            className={styles.barExpense}
+          />
         </div>
       </div>
     </main>

@@ -7,16 +7,14 @@ function TransactionItem({ date, transactions }) {
   const dateFormatted = moment(date).format("LL");
 
   return (
-    <Col>
+    <Col className={styles.container}>
       <Card className="m-3">
         <Card.Header>{dateFormatted}</Card.Header>
         <Card.Body>
-          <Table responsive="sm">
-            <thead>
-              <tr>
-                <th>Category</th>
-                <th>Amount</th>
-              </tr>
+          <Table responsive="sm" className={styles.box}>
+            <thead className={styles.wrapper}>
+              <th>Category</th>
+              <th>Amount</th>{" "}
             </thead>
             <tbody>
               {transactions.map((transaction, idx) => {
