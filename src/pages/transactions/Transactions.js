@@ -39,7 +39,7 @@ function Transactions() {
   console.log("transactionsByDate ->", transactionsByDate);
 
   return (
-    <Container>
+    <Container className={styles.container}>
       <SelectDate initValue={now} maxValue={now} onSelect={handleSelectDate} />
       <TotalTransaction transactions={transactions} />
       <p className={styles.summary}>Resumen transaciones </p>

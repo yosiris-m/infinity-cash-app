@@ -1,35 +1,26 @@
 .title {
-  margin: 30px 0 35px 25px;
+  padding-top: 10px;
+  margin: 20px ;
+  color: rgba(5, 5, 5, 0.986);
 }
-/* 
-.item1 {
-  padding-right: 5px;
-} */
+
 
 .options {
-  background-color: rgb(222, 233, 255);
-  margin: 20px 0px 25px 25px;
+  
+  margin: 20px 0px 25px 0;
   padding-right: 28px;
-  padding-left: 35px;
   border: aliceblue;
   border-radius: 5px;
-  width: 200px;
-  height: 35px;
-  border: 1px solid gray;
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgb(98, 98, 98);
+  background-color: rgb(248, 248, 246);
+  color: gray;
 }
 
-.wrapper {
-
-  width: 250px;
-  height: 390px;
-  background-color: rgb(205, 205, 211);
- 
- 
-}
 
 .selectExpIncome {
   color: rgb(0, 89, 255);
-  
   
 }
 
@@ -43,26 +34,19 @@
  
 }
 
-.inputTransaction {
-  width: 200px;
-  height: 35px;
-  display: flex;
-  padding-left: 35%;
-  margin-left: 25px;
-  border: 1px solid gray;
-  
-}
+
 
 .monthNewTransaction {
-  background-color: rgb(222, 233, 255);
-  margin: 20px 0px 25px 25px;
-  padding-right: 28px;
+  margin: 5px 0px 20px 0 ;
+  padding-right: 10px;
   padding-left: 35px;
   border: aliceblue;
-  border-radius: 5px;
-  width: 200px;
-  height: 35px;
+  border-radius: 3px;
+  width: 100%;
+  min-width: 0;
+  height: 40px; 
   border: 1px solid gray;
+  color: gray;
 }
 
 .monthNewTransaction:hover {
@@ -73,37 +57,53 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  width: 200px;
-  height: 35px;
+  width: 100%;
+  height: 40px;
   text-decoration: none;
-  background-color: rgb(222, 233, 255);
   color: black;
-  margin-left: 25px;
   margin-bottom: 15px;
   border: 1px solid gray;
+  color: gray;
 }
 
 .AddAmount {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 30px;
+  background-color: rgb(248, 248, 246);
+ font-family: "Montserrat";
+  height: 80vh;
+  
+ 
 }
 
 .categorySelected {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(194, 31, 58);
+  color: rgb(14, 14, 20);
   font-weight: bold;
   font-size: 19px;
+  width: 100%;
+  height: 40px;
+  text-decoration: none;
+  margin-bottom: 15px;
+  border: 1px solid gray;
+ 
+}
+
+.lup {
+  padding-left: 95px;
+}
+
+.buttonBox {
+  display: flex;
+  justify-content: space-between;
 }
 
 .buttonCancel {
   background-color: rgb(240, 85, 110);
   color: rgb(14, 15, 15);
-  margin-left: 20px;
   margin-top: 50px;
   height: 35px;
   padding-top: 5px;
@@ -117,7 +117,7 @@
   background-color: rgb(45, 185, 10);
   color: rgb(16, 18, 20);
   height: 35px;
-  margin-left: 50px;
+ 
   margin-top: 50px;
   border: rgb(17, 17, 17);
   width: 75px;

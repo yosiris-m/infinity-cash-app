@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../components/SelectCategory.css";
+import styles from "./SelectCategory.module.scss";
 import { getCategories } from "../../../services/categories";
 
 function SelectCategory({ onSelect, onCancel, transactionType }) {
@@ -16,21 +16,25 @@ function SelectCategory({ onSelect, onCancel, transactionType }) {
   );
 
   return (
-    <div>
-      <h2 className="titleCategory">Select category:</h2>
-      {filteredCategories.map((category, categories) => (
-        <div
-          className="category"
-          key={categories}
-          onClick={() => onSelect(category, category.id)}
-        >
-          <i class={`fas fa-${category.image}`}></i>
-          {category.label}
-        </div>
-      ))}
+    <div className={styles.box}>
+      <div className={styles.container}>
+        {filteredCategories.map((category, categories) => (
+          <div
+            className={styles.category}
+            key={categories}
+            onClick={() => onSelect(category, category.id)}
+          >
+            <div className={styles.imgCategoryBox}>
+              <i class={`fas fa-${category.image}`}></i>
+            </div>
+
+            <span>{category.label} </span>
+          </div>
+        ))}
+      </div>
       <button
         type="button"
-        className="btn btn-danger CancelCategory"
+        className={styles.CancelCategory}
         onClick={() => onCancel()}
       >
         Cancel

@@ -68,7 +68,7 @@ function NewTransaction() {
 
   return (
     <main className="AddAmount">
-      <h4 className="title">Create a new transaction</h4>
+      <h4 className="title">New transaction</h4>
       <div className="wrapper">
         <div className="form-group NewAmount">
           <select
@@ -79,19 +79,12 @@ function NewTransaction() {
             <option value="income">Income</option>
             <option value="expense">Expense</option>
           </select>
-          {/* <input
-            type="number"
-            min="1"
-            step="any"
-            value={amount}
-            onChange={handleInput}
-            placeholder="0.00"
-          /> */}
-          <InputGroup className="mb-3">
+
+          <InputGroup className="mb-3  ">
             <FormControl
               type="number"
               min="1"
-              placeholder="Amount"
+              placeholder="0.0"
               value={amount}
               onChange={handleInputAmount}
             />
@@ -107,10 +100,11 @@ function NewTransaction() {
           value={selectedDate}
         />
         <Link className="seletedCategory" to="#" onClick={handleSelectCategory}>
-          Select category
+          <span>Select category</span>
+          <i class="fas fa-search lup"></i>
         </Link>
         <div className="categorySelected">{selectedCategory.label}</div>
-        <div>
+        <div className="buttonBox">
           <button
             type="button"
             className="btn btn-danger buttonCancel"

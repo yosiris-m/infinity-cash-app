@@ -17,6 +17,7 @@ import img2 from "../src/images/calendar.svg";
 import img3 from "../src/images/binoculars.svg";
 // import "../src/App.css";
 import NewTransaction from "./pages/transactions/components/NewTransaction";
+import Footer from "./pages/transactions/components/Footer";
 
 export default function App() {
   return (
@@ -61,6 +62,7 @@ export default function App() {
           </Route>
           <Redirect to="/transactions" />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );

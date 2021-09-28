@@ -1,5 +1,7 @@
 @import "/src/styles/core/variables";
-
+.app {
+  background-color: blanchedalmond;
+}
 .transaction {
   display: flex;
   flex-direction: row;

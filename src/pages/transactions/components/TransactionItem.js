@@ -13,7 +13,7 @@ function TransactionItem({ date, transactions }) {
         <Card.Body>
           <Table responsive="sm" className={styles.box}>
             <thead className={styles.wrapper}>
-              <th>Category</th>
+              <th className={styles.tdCategory}>Category</th>
               <th>Amount</th>{" "}
             </thead>
             <tbody>
@@ -36,7 +36,7 @@ function TransactionItem({ date, transactions }) {
                 return (
                   <tr key={idx}>
                     <td>
-                      <i class={`fas fa-${image}`}></i>
+                      <i className={`fas fa-${image}`}></i>
                     </td>
                     <td>{category}</td>
                     <td className={styles[type]}>{price}</td>
