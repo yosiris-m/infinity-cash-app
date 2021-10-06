@@ -52,7 +52,6 @@ function Transactions() {
           />
         ))}
       </Row>
-
       <Nav.Item>
         <Nav.Link href="/NewTransaction">
           <div className={styles.buttonNewTransaction}>+</div>

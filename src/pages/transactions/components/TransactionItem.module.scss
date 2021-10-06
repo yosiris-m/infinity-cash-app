@@ -9,9 +9,25 @@
 
 .expense {
   color: #dc3545;
+  padding-left: 2rem;
 }
 
 .wrapper {
   color: $font-color-td;
-  line-height: 3rem;
 }
+
+.tdCategory {
+  // padding-bottom: 50px;
+  border-style: none;
+}
+
+.tdAmount {
+  text-align: center;
+  // padding-bottom: 20px;
+  border-style: none;
+}
+
+// .box {
+//   display: flex;
+//   flex-direction: column;
+// }

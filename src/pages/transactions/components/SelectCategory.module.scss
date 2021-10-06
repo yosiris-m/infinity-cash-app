@@ -70,7 +70,7 @@
   position: fixed;
   z-index: 1;
   left: 42%;
-  top: 93%;
+  top: 90%;
   border: 1px solid transparent;
   border-radius: 9%;
   border-color: rgb(234, 241, 235);
@@ -81,13 +81,12 @@
   color: rgb(14, 15, 15);
 
   @media all and (min-width: 768px) {
-    left: 0%;
-    top: 90%;
+    top: 94%;
   }
 
   @media all and (min-width: 1220px) {
-    left: 0%;
-    top: 82%;
+    left: 80%;
+    top: 90%;
   }
 }
 

@@ -13,8 +13,10 @@ function TransactionItem({ date, transactions }) {
         <Card.Body>
           <Table responsive="sm" className={styles.box}>
             <thead className={styles.wrapper}>
-              <th className={styles.tdCategory}>Category</th>
-              <th>Amount</th>{" "}
+              <tr>
+                <th className={styles.tdCategory}>Category</th>
+                <th className={styles.tdAmount}>Amount</th>
+              </tr>
             </thead>
             <tbody>
               {transactions.map((transaction, idx) => {
@@ -35,10 +37,10 @@ function TransactionItem({ date, transactions }) {
                   .toFormat();
                 return (
                   <tr key={idx}>
+                    <td>{category}</td>
                     <td>
                       <i className={`fas fa-${image}`}></i>
                     </td>
-                    <td>{category}</td>
                     <td className={styles[type]}>{price}</td>
                   </tr>
                 );
