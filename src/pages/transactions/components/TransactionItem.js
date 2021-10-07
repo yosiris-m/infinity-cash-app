@@ -37,10 +37,8 @@ function TransactionItem({ date, transactions }) {
                   .toFormat();
                 return (
                   <tr key={idx}>
+                    <i className={`fas fa-${image}`}></i>
                     <td>{category}</td>
-                    <td>
-                      <i className={`fas fa-${image}`}></i>
-                    </td>
                     <td className={styles[type]}>{price}</td>
                   </tr>
                 );
