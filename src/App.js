@@ -18,11 +18,16 @@ import img3 from "../src/images/binoculars.svg";
 
 import NewTransaction from "./pages/transactions/components/NewTransaction";
 import Footer from "./pages/transactions/components/Footer";
+import { Alert } from "react-bootstrap";
 
 export default function App() {
   return (
     <Router>
       <div>
+        <Alert variant="warning">
+          <i className="fas fa-wrench"></i> This application is{" "}
+          <strong>under construction</strong>
+        </Alert>
         <Nav
           variant="tabs"
           defaultActiveKey="/home"

@@ -6,15 +6,11 @@ export function getCategories() {
   });
 }
 
-export function createdCategory(label, type, image) {
-  console.log("category-label ->", label);
-  console.log("category-type ->", type);
-  console.log("category-image ->", image);
-
+export function createCategory(label, type, image) {
   const body = {
-    label: label,
-    type: type,
-    image: "image",
+    label,
+    type,
+    image,
   };
 
   console.log("body", body);

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../../components/Button";
 import styles from "../categories/Categories.module.scss";
-import { createdCategory } from "../../../src/services/categories";
+import { createCategory } from "../../../src/services/categories";
 import Image from "./Image";
 
 function Categories() {
@@ -17,13 +17,9 @@ function Categories() {
     setType(ev.target.value);
   };
 
-  const onHandleSelectImage = (ev) => {
-    setImage(ev.target.value);
-  };
-
   const onClickHandleSubmit = (ev) => {
     ev.preventDefault();
-    createdCategory(label, type, image)
+    createCategory(label, type, image)
       .then(() => {
         setLabel("");
         setType("");
@@ -54,12 +50,8 @@ function Categories() {
             <input type="radio" value="expense" /> Expense
           </label>
         </div>
-        <div
-          className={styles.image}
-          value={image}
-          onClick={onHandleSelectImage}
-        >
-          <Image />
+        <div className={styles.image} value={image}>
+          <Image onSelectImage={(img) => setImage(img)} />
         </div>
 
         <Button label="Add" type="submit" onClick={onClickHandleSubmit} />

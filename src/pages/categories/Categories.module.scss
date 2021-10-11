@@ -28,9 +28,20 @@
 }
 
 .image {
-  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 70rem;
+
+  font-size: 30px;
 
   & i {
-    padding: 0 10px;
+    // padding: 0 10px;
+    height: 60px;
+    width: 60px;
+    border: 1px solid black;
+    margin: 0 6px;
   }
 }
