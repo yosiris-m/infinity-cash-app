@@ -15,7 +15,7 @@ import { Nav } from "react-bootstrap";
 import img1 from "../src/images/cash-flow.svg";
 import img2 from "../src/images/calendar.svg";
 import img3 from "../src/images/binoculars.svg";
-// import "../src/App.css";
+
 import NewTransaction from "./pages/transactions/components/NewTransaction";
 import Footer from "./pages/transactions/components/Footer";
 

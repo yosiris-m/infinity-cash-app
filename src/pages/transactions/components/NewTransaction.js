@@ -101,8 +101,14 @@ function NewTransaction() {
         />
         <Link className="seletedCategory" to="#" onClick={handleSelectCategory}>
           <span>Select category</span>
-          <i class="fas fa-search lup"></i>
+          <i className="fas fa-search lup"></i>
         </Link>
+
+        <a href="categories" className="seletedCategory">
+          <span>Created new category</span>
+          {/* <i class="fas fa-search lup"></i> */}
+        </a>
+
         <div className="categorySelected">{selectedCategory.label}</div>
         <div className="buttonBox">
           <button
