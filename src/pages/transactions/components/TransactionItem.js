@@ -30,8 +30,8 @@ function TransactionItem({ date, transactions }) {
                     <tr key={idx}>
                       <td>
                         <i className={image}></i>
+                        <span className={styles.category}>{category}</span>
                       </td>
-                      <td>{category}</td>
                       <td className={styles[type]}>{price}</td>
                     </tr>
                   );
