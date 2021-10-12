@@ -22,7 +22,7 @@ function TotalTransaction({ transactions }) {
         <div className={styles.boxIncome}>
           <span>Ingresos: </span>
           {Dinero({ amount: income, currency: "EUR" })
-            .setLocale("fr-FR")
+            .setLocale("es-ES")
             .toFormat()}
         </div>
         <div className={styles.barBoxIncome}>
@@ -39,7 +39,7 @@ function TotalTransaction({ transactions }) {
         <div className={styles.boxExpense}>
           <span>Gastos: </span>
           {Dinero({ amount: expenses, currency: "EUR" })
-            .setLocale("fr-FR")
+            .setLocale("es-ES")
             .toFormat()}{" "}
         </div>
 
