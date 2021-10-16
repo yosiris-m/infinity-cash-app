@@ -5,15 +5,10 @@
   justify-content: center;
   align-items: center;
 
-  & input[type="radio"] {
-    display: none;
-  }
-
   // & label {
   //   padding-left: 20px;
   // }
 }
-
 .radio {
   display: flex;
   justify-content: space-evenly;

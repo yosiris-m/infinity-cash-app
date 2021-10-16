@@ -1,0 +1,57 @@
+@import "../../../styles/core/variables";
+
+.box {
+  margin-top: 1rem;
+
+  @media all and (min-width: 768px) {
+    row-gap: 1rem;
+    width: 300px;
+    margin-top: 50px;
+    border: 2px solid #cdf0f748;
+  }
+
+  @media all and (min-width: 1220px) {
+    row-gap: 1rem;
+    width: 400px;
+    margin-top: 50px;
+  }
+}
+
+.date {
+  padding: 0.1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  // background-color: rgb(241, 234, 226);
+  background-color: #7975752f;
+  border-bottom: 1px solid rgb(209, 204, 204);
+}
+
+.rowBox {
+  padding: 0.4rem;
+
+  // border-bottom: 1px solid rgb(243, 189, 189);
+  // background-color: rgb(241, 234, 226);
+  // display: grid;
+  // grid-template-columns: repeat(2, 1fr);
+  // grid-template-columns: [first] 40px [line2] 50px [line3];
+
+  font-size: 0.9rem;
+}
+
+.rowBox i {
+  color: #38353588;
+  padding-right: 0.5rem;
+}
+
+.price {
+  float: right;
+}
+
+.income {
+  color: #198754;
+}
+
+.expense {
+  color: #dc3545;
+  // padding-left: 2rem;
+}

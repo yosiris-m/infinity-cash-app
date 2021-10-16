@@ -1,0 +1,61 @@
+@import "../../../styles/core/variables";
+
+.wrapper {
+  // display: flex;
+
+  flex-wrap: wrap;
+
+  @media all and (min-width: 768px) {
+    max-width: 85vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    margin: 0 auto;
+  }
+
+  @media all and (min-width: 1220px) {
+    margin: auto;
+    max-width: 70vw;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+  }
+}
+
+.chart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.boxIncome {
+  color: green;
+  width: 7rem;
+  height: 3rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.balance {
+  background-color: green;
+  color: white;
+  text-align: center;
+}
+
+.boxExpense {
+  color: rgb(209, 56, 17);
+  width: 7rem;
+  height: 3rem;
+  border-radius: 10px;
+  text-align: center;
+}

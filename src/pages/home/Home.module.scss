@@ -1,0 +1,76 @@
+@import "../../styles/core/variables";
+
+.header {
+  background-color: #f09393f1;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media all and (min-width: 768px) {
+  .allTime {
+    height: 50px;
+    margin: 20px 10px 10px;
+  }
+}
+
+@media all and (min-width: 1220px) {
+  .allTime {
+    height: 40px;
+    margin: 10px 10px 10px;
+  }
+}
+
+.chart {
+  height: 15rem;
+  margin: 0 auto;
+  width: 95.5vw;
+  font-size: 0.5rem;
+}
+
+.newTransaction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 92.5%;
+  // left: 85px;
+
+  border: 1px solid gray;
+  width: 100%;
+  height: 3rem;
+  background-color: #f09393f1;
+  color: white;
+  font-family: $font-family1;
+
+  @media all and (min-width: 768px) {
+    top: 96.5%;
+  }
+
+  @media all and (min-width: 1220px) {
+    top: 50rem;
+  }
+}
+
+.NewIncome {
+  height: 2rem;
+  width: 6rem;
+
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  border-right: 1px solid gray;
+}
+
+.NewExpense {
+  height: 2rem;
+  width: 6rem;
+
+  border-right: 1px solid gray;
+}
+
+.NewCategory {
+  height: 2rem;
+  width: 6rem;
+}

@@ -1,71 +1,41 @@
 @import "/src/styles/core/variables";
-.app {
-  background-color: blanchedalmond;
-}
-.transaction {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: rgb(248, 248, 246);
-
-  @media all and (min-width: 768px) {
-    height: 160px;
-    font-size: 18px;
-    justify-content: space-evenly;
-  }
-
-  @media all and (min-width: 1220px) {
-    height: 130px;
-    font-size: 13px;
-  }
-}
-
-.transactionImg {
-  height: 50px;
-  margin: 25px 10px 0px 35px;
-
-  @media all and (min-width: 768px) {
-    height: 60px;
-  }
-
-  @media all and (min-width: 1220px) {
-    height: 60px;
-    margin: 25px 10px 0px 30px;
-  }
-}
 
 .reportsImg {
-  height: 50px;
-  margin: 25px 10px 0px 25px;
+  height: 40px;
+  margin: 25px 10px 0 25px;
 
   @media all and (min-width: 768px) {
-    height: 60px;
+    height: 50px;
   }
 
-  @media all and (min-width: 1220px) {
-    height: 65px;
-    margin: 25px 10px 0px 19px;
-  }
+  // @media all and (min-width: 1220px) {
+  //   height: 65px;
+  //   // margin: 25px 10px 0px 19px;
+  // }
 }
 
 .categoriesImg {
-  height: 60px;
-  margin: 15px 10px 0px 25px;
+  height: 40px;
+  // margin: 15px 10px 0px 25px;
 
   @media all and (min-width: 768px) {
-    height: 65px;
+    height: 50px;
   }
 
-  @media all and (min-width: 1220px) {
-    height: 80px;
-    margin: 10px 0 0 18px;
-  }
+  // @media all and (min-width: 1220px) {
+  //   height: 80px;
+  //   // margin: 10px 0 0 18px;
+  // }
 }
 
 .transactions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-family: $font-title;
-  font-size: 1rem;
   color: $font-color;
+  font-size: 0.8rem;
 }
 
 /* 
