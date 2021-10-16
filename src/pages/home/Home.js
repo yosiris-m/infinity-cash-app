@@ -85,7 +85,10 @@ function Home() {
           }}
         />
       </div>
-      <div className={styles.newTransaction}>
+
+      <TransactionList />
+
+      <div className={styles.bottomMenu}>
         <Link to="/add-transaction/income">
           <div className={styles.NewIncome}>
             <i className="fas fa-plus" />
@@ -105,8 +108,6 @@ function Home() {
           </div>
         </Link>
       </div>
-
-      <TransactionList />
     </>
   );
 }

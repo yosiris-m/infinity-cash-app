@@ -29,16 +29,14 @@
   font-size: 0.5rem;
 }
 
-.newTransaction {
+.bottomMenu {
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  top: 92.5%;
-  // left: 85px;
-
-  border: 1px solid gray;
+  bottom: 0;
   width: 100%;
+  border: 1px solid gray;
   height: 3rem;
   background-color: #f09393f1;
   color: white;
