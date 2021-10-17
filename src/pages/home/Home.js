@@ -1,20 +1,25 @@
-import Dinero from "../../../node_modules/dinero.js/build/esm/dinero";
 import moment from "moment";
 import { useEffect, useState } from "react";
 import { ResponsivePie } from "@nivo/pie";
 
 import { getExpenses } from "../../services/charts";
 import MonthPicker from "./components/MonthPicker";
-import TransactionList from "./components/TransactionList";
+import Summary from "./components/Summary";
 import { Link } from "react-router-dom";
+import image from "../../images/cash.svg";
 
 import styles from "./Home.module.scss";
+import { getTransactions } from "../../services/transactions";
+import TransactionList from "./components/TransactionList";
 
 function Home() {
   const now = moment().format("YYYY-MM");
   const year = Number(moment().format("YYYY"));
   const month = Number(moment().format("M"));
+
   const [chartData, setChartData] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+  const [selectedYearAndMonth, setSelectedYearAndMonth] = useState(now);
 
   const fetchExpenses = (month) => {
     const from = `${month}-01`;
@@ -30,23 +35,30 @@ function Home() {
     });
   };
 
-  const handleSelectDate = (month) => {
-    fetchExpenses(month);
+  const fetchTransactions = (month) => {
+    const from = `${month}-01`;
+    const to = moment(month).endOf("month").format("YYYY-MM-DD");
+
+    getTransactions({ from, to }).then((transactions) => {
+      setTransactions(transactions);
+    });
   };
 
   useEffect(() => {
-    fetchExpenses(now);
-  }, [now]);
+    fetchTransactions(selectedYearAndMonth);
+    fetchExpenses(selectedYearAndMonth);
+  }, [selectedYearAndMonth]);
 
   return (
-    <>
+    <div>
       <div className={styles.header} id="home">
+        <img src={image} className={styles.imgHeader} />
         FamilyCash
       </div>
       <MonthPicker
         initValue={{ year, month }}
         maxValue={{ year, month }}
-        onSelect={handleSelectDate}
+        onSelect={(yearAndMonth) => setSelectedYearAndMonth(yearAndMonth)}
       />
       <div className={styles.chart}>
         <ResponsivePie
@@ -57,22 +69,17 @@ function Home() {
           padAngle={0.7}
           startAngle={-70}
           endAngle={296}
-          cornerRadius={3}
+          cornerRadius={2}
           activeInnerRadiusOffset={22}
           activeOuterRadiusOffset={8}
-          borderWidth={19}
+          borderWidth={10}
           borderColor={{ theme: "background" }}
-          valueFormat={(value) =>
-            Dinero({ amount: value, currency: "EUR" })
-              .setLocale("es-ES")
-              .toFormat()
-          }
           enableArcLinkLabels={true}
           arcLinkLabelsDiagonalLength={7}
-          arcLinkLabelsStraightLength={10}
+          arcLinkLabelsStraightLength={8}
           arcLinkLabelsTextOffset={3}
           arcLinkLabelsThickness={2}
-          arcLinkLabelsSkipAngle={10}
+          arcLinkLabelsSkipAngle={4}
           arcLinkLabelsTextColor={{ from: "color", modifiers: [] }}
           arcLinkLabelsColor={{ from: "color" }}
           enableArcLabels={false}
@@ -80,35 +87,31 @@ function Home() {
           arcLabelsTextColor="black"
           theme={{
             labels: {
-              text: { fontSize: 10 },
+              text: {
+                fontSize: 9,
+                fontWeight: " bold ",
+                fontFamily: "Montserrat",
+              },
             },
           }}
         />
       </div>
 
-      <TransactionList />
+      <Summary transactions={transactions} />
+      <TransactionList transactions={transactions} />
 
       <div className={styles.bottomMenu}>
-        <Link to="/add-transaction/income">
-          <div className={styles.NewIncome}>
-            <i className="fas fa-plus" />
-            Income
-          </div>
+        <Link to="/add-transaction/income" className={styles.newTransaction}>
+          Income
         </Link>
-        <Link to="/add-transaction/expense">
-          <div className={styles.NewExpense}>
-            <i className="fas fa-plus" />
-            Expense
-          </div>
+        <Link to="/add-transaction/expense" className={styles.newExpense}>
+          Expense
         </Link>
-        <Link to="/add-category">
-          <div className={styles.NewCategory}>
-            <i className="fas fa-plus" />
-            Category
-          </div>
+        <Link to="/add-category" className={styles.newTransaction}>
+          Category
         </Link>
       </div>
-    </>
+    </div>
   );
 }
 

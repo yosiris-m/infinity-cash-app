@@ -6,6 +6,7 @@ import CategoryList from "./components/CategoryList";
 import Button from "../../components/Button";
 import { createTransaction } from "../../services/transactions";
 import { useHistory } from "react-router-dom";
+import styles from "./AddTransaction.module.scss";
 
 function AddTransaction() {
   const now = moment().format("YYYY-MM-DD");
@@ -42,7 +43,7 @@ function AddTransaction() {
   };
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <h1>Add {type}</h1>
       <input
         type="date"
