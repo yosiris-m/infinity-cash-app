@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { createCategory } from "../../services/categories";
 import styles from "./AddCategory.module.scss";
-import Image from "./components/Image";
+import ImageList from "./components/ImageList";
 import Button from "../../components/Button";
 import { Link, useHistory } from "react-router-dom";
 
 function AddCategory() {
   const [label, setLabel] = useState("");
   const [type, setType] = useState("");
-  const [image, setImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState("");
   const history = useHistory();
 
   const onClickHandleSubmit = (ev) => {
     ev.preventDefault();
-    createCategory(label, type, image)
+    createCategory(label, type, selectedImage)
       .then(() => {
         setLabel("");
         setType("");
-        setImage("");
+        setSelectedImage("");
 
         history.push("/home");
       })
@@ -56,7 +56,10 @@ function AddCategory() {
           </label>
         </div>
         <div className={styles.image}>
-          <Image onSelectImage={(img) => setImage(img)} />
+          <ImageList
+            onSelectImage={(img) => setSelectedImage(img)}
+            selectedImage={selectedImage}
+          />
         </div>
 
         <Button label="Add" type="submit" onClick={onClickHandleSubmit} />

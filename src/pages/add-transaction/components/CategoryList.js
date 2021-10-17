@@ -1,12 +1,16 @@
 import React from "react";
 import styles from "./CategoryList.module.scss";
 
-function CategoryList({ categories, onSelectCategory }) {
+function CategoryList({ categories, onSelectCategory, selectedCategory }) {
   return (
     <div className={styles.container}>
       {categories.map((category, categories) => (
         <div
-          className={styles.category}
+          className={
+            category.id === selectedCategory.id
+              ? `${styles.category} ${styles.categorySelected}`
+              : styles.category
+          }
           key={categories}
           onClick={() => onSelectCategory(category)}
         >

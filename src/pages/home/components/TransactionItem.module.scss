@@ -1,7 +1,7 @@
 @import "../../../styles/core/variables";
 
 .box {
-  margin-top: 1rem;
+  //margin-top: 1rem;
 
   @media all and (min-width: 768px) {
     row-gap: 1rem;
@@ -18,7 +18,7 @@
 }
 
 .date {
-  padding: 0.1rem;
+  padding: 0.2rem 1.5rem;
   font-size: 0.9rem;
   font-weight: 600;
   // background-color: rgb(241, 234, 226);
@@ -27,7 +27,7 @@
 }
 
 .rowBox {
-  padding: 0.4rem;
+  padding: 0.5rem 1.5rem;
 
   // border-bottom: 1px solid rgb(243, 189, 189);
   // background-color: rgb(241, 234, 226);

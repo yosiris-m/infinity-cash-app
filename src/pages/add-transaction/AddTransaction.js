@@ -60,6 +60,7 @@ function AddTransaction() {
         />
       </div>
       <CategoryList
+        selectedCategory={selectedCategory}
         categories={filteredCategories}
         onSelectCategory={(category) => setSelectedCategory(category)}
       />

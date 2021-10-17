@@ -35,14 +35,11 @@
     font-size: 22px;
   }
 
-  &:hover {
-    background-color: rgba(253, 253, 253, 0.548);
-  }
 }
 
 .imgCategoryBox {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 50px;
@@ -51,4 +48,10 @@
   background-color: rgb(213, 248, 224);
   font-size: 1.6rem;
   color: rgb(6, 165, 27);
+
+
+}
+
+.categorySelected {
+  background-color: #0a53be;
 }
