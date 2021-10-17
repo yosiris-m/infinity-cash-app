@@ -2,6 +2,10 @@ import styles from "./Summary.module.scss";
 import Dinero from "dinero.js";
 
 function Summary({ transactions }) {
+  if (transactions.length === 0) {
+    return null;
+  }
+
   let income = 0;
   let expenses = 0;
 
