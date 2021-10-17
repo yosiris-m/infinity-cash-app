@@ -51,10 +51,10 @@ function Home() {
 
   return (
     <div>
-      <div className={styles.header} id="home">
+      <header className={styles.header} id="home">
         <img src={image} className={styles.imgHeader} alt="FamilyCash logo" />
         FamilyCash
-      </div>
+      </header>
       <MonthPicker
         initValue={{ year, month }}
         maxValue={{ year, month }}
