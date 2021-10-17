@@ -11,6 +11,7 @@ function MonthPicker({ initValue, maxValue, onSelect }) {
   const handleMonthChange = (year, month) => {
     setSelectedMonth({ year, month });
     onSelect(`${year}-${month}`);
+    pickMonthRef.current.dismiss();
   };
 
   const pickerLang = {
