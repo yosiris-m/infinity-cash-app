@@ -48,7 +48,7 @@ function AddTransaction() {
         <Link to="/home">
           <i className="fas fa-arrow-left" />
         </Link>
-        <h1 className={styles.title}>Add {type}</h1>
+        <h2 className={styles.title}>Add {type}</h2>
       </div>
       <div className={styles.wrapper}>
         <input

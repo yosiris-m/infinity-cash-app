@@ -28,18 +28,19 @@ function AddCategory() {
 
   return (
     <div>
-      Add Category
-      <h2>Create a new category</h2>
-      <Link to="/home">
-        <div>
+      <header className={styles.header}>
+        <Link to="/home">
           <i className="fas fa-arrow-left" />
-        </div>
-        <span> home</span>
-      </Link>
+        </Link>
+        <h2 className={styles.title}>Add category</h2>
+      </header>
+
       <form className={styles.wrapper}>
         <input
+          className={styles.label}
           type="text"
           value={label}
+          placeholder="category label"
           onChange={(event) => setLabel(event.target.value)}
         />
 
@@ -47,11 +48,11 @@ function AddCategory() {
           className={styles.radio}
           onChange={(event) => setType(event.target.value)}
         >
-          <label>
-            <input type="radio" name="type" value="income" />
+          <label className={styles.labelType}>
+            <input type="radio" name="type" value="income" checked />
             Income
           </label>
-          <label>
+          <label className={styles.labelType}>
             <input type="radio" name="type" value="expense" /> Expense
           </label>
         </div>

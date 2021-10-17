@@ -1,14 +1,34 @@
+@import "../../styles/core/variables";
+
+.header {
+  background: $background-colorG;
+  background: radial-gradient(circle, rgb(91, 173, 13) 0%, rgba(23, 93, 34, 0.76) 100%);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-family: $font-family ;
+  font-size: 1rem;
+  color: #fff;
+
+  & i {
+    color: #fff;
+    margin-left: 2rem;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  margin: 0 0 0 2rem;
+}
+
 .wrapper {
-  // text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  // & label {
-  //   padding-left: 20px;
-  // }
+  margin-top: 3rem;
 }
+
 .radio {
   display: flex;
   justify-content: space-evenly;
@@ -16,10 +36,19 @@
   margin: 20px 0;
   width: 300px;
   color: green;
+}
 
-  & label:active {
-    color: blue;
-  }
+.label {
+  border: none;
+  border-bottom: 1px solid green;
+  text-align: center;
+  font-size: 1.3rem;
+
+}
+
+.labelType {
+  margin-top: 2rem;
+  font-size: 1.2rem;
 }
 
 .image {
@@ -28,17 +57,9 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 70rem;
-  font-size: 30px;
-
-
-  & i {
-    // padding: 0 10px;
-    height: 60px;
-    width: 60px;
-    border: 1px solid black;
-    margin: 0 6px;
-  }
+  //max-width: 70rem;
+  font-size: 20px;
+  margin-bottom: 3rem;
 }
 
 .colorImage {

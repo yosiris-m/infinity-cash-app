@@ -5,13 +5,17 @@ function ImageList({ onSelectImage, selectedImage }) {
   return (
     <div className={styles.wrapper}>
       {categoryImages.map((img, idx) => (
-        <span
+        <div
           key={idx}
-          className={img === selectedImage ? styles.selectedImage : styles.img}
+          className={
+            img === selectedImage
+              ? `${styles.img} ${styles.selectedImage}`
+              : styles.img
+          }
           onClick={() => onSelectImage(img)}
         >
           <i className={img} />
-        </span>
+        </div>
       ))}
     </div>
   );

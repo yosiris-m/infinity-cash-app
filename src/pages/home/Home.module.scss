@@ -58,7 +58,7 @@
   height: 2rem;
   width: 4rem;
   text-decoration: none;
-  color: black;
+  color: #fff;
   background: $background-Button;
   border-radius: 4px;
 
@@ -74,7 +74,7 @@
   height: 2rem;
   width: 4rem;
   text-decoration: none;
-  color: black;
+  color: #fff;
   background: $background-Button;
   border-radius: 4px;
   margin-left: 1rem;
@@ -82,16 +82,3 @@
 }
 
 
-.reports {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2rem;
-  width: 4rem;
-  text-decoration: none;
-  color: black;
-  background: $background-Button;
-  border-radius: 4px;
-  margin-left: 1rem;
-
-}
