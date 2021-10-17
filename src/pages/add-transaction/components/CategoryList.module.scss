@@ -1,18 +1,20 @@
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
   justify-content: center;
 
+
+
   @media all and (min-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     max-width: 100%;
   }
 
   @media all and (min-width: 1220px) {
     text-align: center;
     grid-template-columns: repeat(6, 1fr);
-    min-width: 70vh;
+    //min-width: 70vh;
   }
 }
 
@@ -22,17 +24,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px 12px 22px 22px;
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   font-family: "Montserrat", serif;
   color: black;
   cursor: pointer;
+  margin: 1.5rem 0 1rem 0.3rem;
 
   @media all and (min-width: 768px) {
-    width: 110px;
-    height: 70px;
     margin: 33px 10px 20px 20px;
-    font-size: 22px;
+    font-size: 1rem;
   }
 
 }
@@ -42,16 +42,16 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background-color: rgb(213, 248, 224);
-  font-size: 1.6rem;
+  font-size: 1rem;
   color: rgb(6, 165, 27);
 
 
 }
 
 .categorySelected {
-  background-color: #0a53be;
+ background-color: #95ea95;
 }
