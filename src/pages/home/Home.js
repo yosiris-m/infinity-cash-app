@@ -11,12 +11,14 @@ import styles from "./Home.module.scss";
 import { getTransactions } from "../../services/transactions";
 import TransactionList from "./components/TransactionList";
 import Chart from "./components/Chart";
+import Loading from "../../components/Loading";
 
 function Home() {
   const now = moment().format("YYYY-MM");
   const year = Number(moment().format("YYYY"));
   const month = Number(moment().format("M"));
 
+  const [loading, setLoading] = useState(false);
   const [chartData, setChartData] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [selectedYearAndMonth, setSelectedYearAndMonth] = useState(now);
@@ -25,7 +27,7 @@ function Home() {
     const from = `${month}-01`;
     const to = moment(month).endOf("month").format("YYYY-MM-DD");
 
-    getExpenses({ from, to }).then((expenses) => {
+    return getExpenses({ from, to }).then((expenses) => {
       const data = expenses.map((expense) => ({
         id: expense.label,
         label: expense.label,
@@ -39,15 +41,29 @@ function Home() {
     const from = `${month}-01`;
     const to = moment(month).endOf("month").format("YYYY-MM-DD");
 
-    getTransactions({ from, to }).then((transactions) => {
+    return getTransactions({ from, to }).then((transactions) => {
       setTransactions(transactions);
     });
   };
 
   useEffect(() => {
-    fetchTransactions(selectedYearAndMonth);
-    fetchExpenses(selectedYearAndMonth);
+    setLoading(true);
+
+    const fetchTransactionsPromise = fetchTransactions(selectedYearAndMonth);
+    const fetchExpensesPromise = fetchExpenses(selectedYearAndMonth);
+
+    Promise.all([fetchTransactionsPromise, fetchExpensesPromise])
+      .then(() => {
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [selectedYearAndMonth]);
+
+  if (loading) {
+    return <Loading loading={loading} />;
+  }
 
   return (
     <>
