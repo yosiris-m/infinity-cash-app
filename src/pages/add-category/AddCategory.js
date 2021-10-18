@@ -40,21 +40,31 @@ function AddCategory() {
           className={styles.label}
           type="text"
           value={label}
-          placeholder="category label"
+          placeholder="Name category"
           onChange={(event) => setLabel(event.target.value)}
         />
 
-        <div
-          className={styles.radio}
-          onChange={(event) => setType(event.target.value)}
-        >
-          <label className={styles.labelType}>
-            <input type="radio" name="type" value="income" checked />
+        <div className={styles.boxType}>
+          <div
+            className={
+              type === "income"
+                ? `${styles.labelSelectedType}`
+                : styles.labelType
+            }
+            onClick={() => setType("income")}
+          >
             Income
-          </label>
-          <label className={styles.labelType}>
-            <input type="radio" name="type" value="expense" /> Expense
-          </label>
+          </div>
+          <div
+            className={
+              type === "expense"
+                ? `${styles.labelSelectedType}`
+                : styles.labelType
+            }
+            onClick={() => setType("expense")}
+          >
+            Expense
+          </div>
         </div>
         <div className={styles.image}>
           <ImageList
