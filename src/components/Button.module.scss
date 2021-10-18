@@ -2,16 +2,17 @@
 
 .btn {
   cursor: pointer;
-  padding: 0.6rem;
   text-decoration: none;
   font-weight: bold;
   color: #fff;
   border-radius: 0.2rem;
   border: 0.02rem solid white;
-  background-color: green;
+  background-color: $background-Button-g1;
   width: 75px;
+  height: 2rem;
+  text-align: center;
 
   &:hover {
-    // background-color: rgb(34, 216, 80);
+     background-color: rgba(11, 171, 52, 0.66);
   }
 }

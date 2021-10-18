@@ -1,3 +1,5 @@
+
+
 .wrapper {
   // text-align: center;
   display: flex;
@@ -6,23 +8,37 @@
   align-items: center;
   flex-wrap: wrap;
 
+  @media all and (min-width: 768px) {
+    width: 30rem;
+  }
+
   // & label {
   //   padding-left: 20px;
   // }
 }
 
 .selectedImage {
-  background-color: #52c452;
+  background-color: #5bad0d;
+
+  & i {
+    color: white;
+  }
+
 }
 
 .img {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgba(38, 37, 37, 0.95);
+  color: #06a51b;
   height: 2.5rem;
   width:  2.5rem;
-  border: 1px solid #7fa15c;
+  border: 1px solid #e0eae0;
   border-radius: 50%;
   margin: 0.5rem 0.5rem;
+
+  @media all and (min-width: 768px) {
+    margin-top: 2rem;
+  }
+
 }

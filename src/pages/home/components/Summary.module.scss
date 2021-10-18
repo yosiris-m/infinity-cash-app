@@ -1,50 +1,54 @@
 @import "../../../styles/core/variables";
 
-.wrapper {
-  // display: flex;
+//.wrapper {
+//  flex-wrap: wrap;
+//  margin-bottom: 3rem;
+//
+//  @media all and (min-width: 768px) {
+//    max-width: 85vw;
+//    display: grid;
+//    grid-template-columns: repeat(2, 1fr);
+//    grid-auto-rows: 1fr;
+//    margin: 0 auto;
+//  }
+//
+//  @media all and (min-width: 1220px) {
+//    margin: auto;
+//    max-width: 70vw;
+//    display: grid;
+//    grid-template-columns: repeat(3, 1fr);
+//    grid-auto-rows: 1fr;
+//  }
+//}
 
-  flex-wrap: wrap;
-  margin-bottom: 3rem;
-
-  @media all and (min-width: 768px) {
-    max-width: 85vw;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 1fr;
-    margin: 0 auto;
-  }
-
-  @media all and (min-width: 1220px) {
-    margin: auto;
-    max-width: 70vw;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 1fr;
-  }
-}
-
-.chart {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
+//.chart {
+//  display: flex;
+//  flex-direction: row;
+//  justify-content: center;
+//  align-items: center;
+//}
 
 .amount {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 3rem;
-  margin-bottom: 4.3rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+
+
 }
 
 .boxIncome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: green;
   width: 7rem;
   height: 3rem;
   border-radius: 10px;
-  text-align: center;
+
 }
 
 .balance {

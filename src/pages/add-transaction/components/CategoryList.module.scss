@@ -1,20 +1,17 @@
 .container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  align-items: center;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-
-
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 2rem;
 
   @media all and (min-width: 768px) {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 100%;
+   width: 50vw;
   }
 
   @media all and (min-width: 1220px) {
-    text-align: center;
-    grid-template-columns: repeat(6, 1fr);
-    //min-width: 70vh;
+    width: 40vw;
   }
 }
 
@@ -28,7 +25,7 @@
   font-family: "Montserrat", serif;
   color: black;
   cursor: pointer;
-  margin: 1.5rem 0 1rem 0.3rem;
+  margin: 1.5rem 0 1rem 1rem;
 
   @media all and (min-width: 768px) {
     margin: 33px 10px 20px 20px;

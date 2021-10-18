@@ -1,19 +1,29 @@
 @import "../../../styles/core/variables";
 
-.box {
-  //margin-top: 1rem;
-
+.wrapper {
+ margin: 0 auto;
+  bottom: 0;
   @media all and (min-width: 768px) {
-    row-gap: 1rem;
-    width: 300px;
-    margin-top: 50px;
-    border: 2px solid #cdf0f748;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 2rem;
+
+
   }
 
   @media all and (min-width: 1220px) {
+    max-width: 50rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+}
+
+.box {
+
+  @media all and (min-width: 768px) {
     row-gap: 1rem;
-    width: 400px;
-    margin-top: 50px;
+    margin: 1rem 0 0 1rem;
   }
 }
 
@@ -21,20 +31,12 @@
   padding: 0.2rem 1.5rem;
   font-size: 0.9rem;
   font-weight: 600;
-  // background-color: rgb(241, 234, 226);
   background-color: #e4fadb;
   border-bottom: 1px solid rgb(209, 204, 204);
 }
 
 .rowBox {
   padding: 0.5rem 1.5rem;
-
-  // border-bottom: 1px solid rgb(243, 189, 189);
-  // background-color: rgb(241, 234, 226);
-  // display: grid;
-  // grid-template-columns: repeat(2, 1fr);
-  // grid-template-columns: [first] 40px [line2] 50px [line3];
-
   font-size: 0.9rem;
 }
 
@@ -53,5 +55,4 @@
 
 .expense {
   color: #dc3545;
-  // padding-left: 2rem;
 }

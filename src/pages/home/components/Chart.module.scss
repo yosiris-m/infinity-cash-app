@@ -3,11 +3,23 @@
   margin: 0 auto;
   width: 95.5vw;
   font-size: 0.5rem;
+
+  @media all and (min-width: 768px) {
+    height: 28rem;
+    width: 30rem;
+
+
+
+  }
 }
+
+
 
 .dataEmpty {
   text-align: center;
   font-size: 1.5rem;
   font-family: sans-serif;
   padding: 0 2rem;
+
+
 }
