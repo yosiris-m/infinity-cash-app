@@ -1,9 +1,10 @@
 @import "../../../styles/core/variables";
 
 .wrapper {
- margin: 0 auto;
-  bottom: 0;
+ margin-bottom: 3rem;
+
   @media all and (min-width: 768px) {
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 0 2rem;
