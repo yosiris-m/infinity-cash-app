@@ -20,28 +20,32 @@ function Summary({ transactions }) {
   const total = income - expenses;
 
   return (
-    <>
-      <div className={styles.amount}>
-        <div className={styles.boxIncome}>
-          <span>Income: </span>
+    <div className={styles.wrapper}>
+      <div className={styles.boxIncome}>
+        <span>Income</span>
+        <span>
           {Dinero({ amount: income, currency: "EUR" })
             .setLocale("es-ES")
             .toFormat()}
-        </div>
-        <div className={styles.balance}>
-          <span>Balance: </span>
+        </span>
+      </div>
+      <div className={styles.boxBalance}>
+        <span>Balance</span>{" "}
+        <span>
           {Dinero({ amount: total, currency: "EUR" })
             .setLocale("es-ES")
             .toFormat()}
-        </div>
-        <div className={styles.boxExpense}>
-          <span>Expense: </span>
+        </span>
+      </div>
+      <div className={styles.boxExpense}>
+        <span>Expense</span>
+        <span>
           {Dinero({ amount: expenses, currency: "EUR" })
             .setLocale("es-ES")
             .toFormat()}
-        </div>
+        </span>
       </div>
-    </>
+    </div>
   );
 }
 

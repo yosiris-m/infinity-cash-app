@@ -7,7 +7,7 @@ export default function Chart({ data }) {
   const noData = [{ id: null, label: "", value: true }];
   return (
     <>
-      <div className={styles.chart} id="chart">
+      <div className={styles.wrapper} id="chart">
         <ResponsivePie
           data={isDataEmpty ? noData : data}
           colors={{ scheme: "paired" }}

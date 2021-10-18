@@ -50,22 +50,26 @@ function Home() {
   }, [selectedYearAndMonth]);
 
   return (
-    <div>
+    <>
       <header className={styles.header} id="home">
         <img src={image} className={styles.imgHeader} alt="FamilyCash logo" />
         FamilyCash
       </header>
-      <MonthPicker
-        initValue={{ year, month }}
-        maxValue={{ year, month }}
-        onSelect={(yearAndMonth) => setSelectedYearAndMonth(yearAndMonth)}
-      />
-      <Chart data={chartData} />
 
-      <Summary transactions={transactions} />
-      <TransactionList transactions={transactions} />
+      <main className={styles.main}>
+        <div>
+          <MonthPicker
+            initValue={{ year, month }}
+            maxValue={{ year, month }}
+            onSelect={(yearAndMonth) => setSelectedYearAndMonth(yearAndMonth)}
+          />
+          <Summary transactions={transactions} />
+          <Chart data={chartData} />
+        </div>
+        <TransactionList transactions={transactions} />
+      </main>
 
-      <div className={styles.bottomMenu}>
+      <footer className={styles.bottomMenu}>
         <Link to="/add-transaction/income" className={styles.newTransaction}>
           Income
         </Link>
@@ -75,8 +79,8 @@ function Home() {
         <Link to="/add-category" className={styles.newTransaction}>
           Category
         </Link>
-      </div>
-    </div>
+      </footer>
+    </>
   );
 }
 

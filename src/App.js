@@ -12,7 +12,7 @@ import Home from "./pages/home/Home";
 import AddTransaction from "./pages/add-transaction/AddTransaction";
 import AddCategory from "./pages/add-category/AddCategory";
 import { useEffect, useState } from "react";
-import Loadin from "./pages/home/loading/Loading";
+import Loading from "./pages/home/loading/Loading";
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -21,13 +21,13 @@ export default function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 7000);
+    });
   }, []);
 
   return (
     <>
       {loading ? (
-        <Loadin animation="" color={"#F37A24"} loading={loading} />
+        <Loading loading={loading} />
       ) : (
         <Router>
           <div>

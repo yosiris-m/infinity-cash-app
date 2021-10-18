@@ -36,25 +36,23 @@ function MonthPicker({ initValue, maxValue, onSelect }) {
   const pickMonthRef = React.createRef();
 
   return (
-    <>
-      <Picker
-        ref={pickMonthRef}
-        value={selectedMonth}
-        onChange={handleMonthChange}
-        years={{ max: maxValue }}
-        lang={pickerLang}
+    <Picker
+      ref={pickMonthRef}
+      value={selectedMonth}
+      onChange={handleMonthChange}
+      years={{ max: maxValue }}
+      lang={pickerLang}
+    >
+      <div
+        className={styles.monthPicker}
+        onClick={() => pickMonthRef.current.show()}
       >
-        <div
-          className={styles.monthPicker}
-          onClick={() => pickMonthRef.current.show()}
-        >
-          {moment(
-            `${selectedMonth.year}-${selectedMonth.month}`,
-            "YYYY-M"
-          ).format("MMMM")}
-        </div>
-      </Picker>
-    </>
+        {moment(
+          `${selectedMonth.year}-${selectedMonth.month}`,
+          "YYYY-M"
+        ).format("MMMM")}
+      </div>
+    </Picker>
   );
 }
 

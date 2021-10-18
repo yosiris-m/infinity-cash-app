@@ -1,62 +1,28 @@
 @import "../../../styles/core/variables";
+@import "../../../styles/core/mixins";
 
-//.wrapper {
-//  flex-wrap: wrap;
-//  margin-bottom: 3rem;
-//
-//  @media all and (min-width: 768px) {
-//    max-width: 85vw;
-//    display: grid;
-//    grid-template-columns: repeat(2, 1fr);
-//    grid-auto-rows: 1fr;
-//    margin: 0 auto;
-//  }
-//
-//  @media all and (min-width: 1220px) {
-//    margin: auto;
-//    max-width: 70vw;
-//    display: grid;
-//    grid-template-columns: repeat(3, 1fr);
-//    grid-auto-rows: 1fr;
-//  }
-//}
-
-//.chart {
-//  display: flex;
-//  flex-direction: row;
-//  justify-content: center;
-//  align-items: center;
-//}
-
-.amount {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
-
-
+.wrapper {
+  @include flex-row;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .boxIncome {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex-column;
   color: green;
   width: 7rem;
   height: 3rem;
   border-radius: 10px;
-
 }
 
-.balance {
+.boxBalance {
+  @include flex-column;
   color: black;
   text-align: center;
 }
 
 .boxExpense {
+  @include flex-column;
   color: rgb(209, 56, 17);
   width: 7rem;
   height: 3rem;

@@ -1,10 +1,8 @@
 @import "../../styles/core/variables";
+@import "../../styles/core/mixins";
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @include flex-column;
   margin-top: 2rem;
 }
 
@@ -39,7 +37,7 @@
 
 }
 
-.amount {
+.wrapper {
   height: 3rem;
   border: none;
   text-align: center;
