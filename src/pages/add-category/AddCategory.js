@@ -11,8 +11,19 @@ function AddCategory() {
   const [selectedImage, setSelectedImage] = useState("");
   const history = useHistory();
 
-  const onClickHandleSubmit = (ev) => {
+  const handleSubmit = (ev) => {
     ev.preventDefault();
+
+    if (selectedImage === "") {
+      alert("Please, select a image");
+      return;
+    }
+
+    if (type === "") {
+      alert("Please, select a transaction type");
+      return;
+    }
+
     createCategory(label, type, selectedImage)
       .then(() => {
         setLabel("");
@@ -27,7 +38,7 @@ function AddCategory() {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <header className={styles.header}>
         <Link to="/home">
           <i className="fas fa-arrow-left" />
@@ -35,12 +46,13 @@ function AddCategory() {
         <h2 className={styles.title}>Add category</h2>
       </header>
 
-      <form className={styles.wrapper}>
+      <form className={styles.wrapper} onSubmit={handleSubmit}>
         <input
           className={styles.label}
+          required
           type="text"
           value={label}
-          placeholder="Name category"
+          placeholder="Name"
           onChange={(event) => setLabel(event.target.value)}
         />
 
@@ -72,8 +84,7 @@ function AddCategory() {
             selectedImage={selectedImage}
           />
         </div>
-
-        <Button label="Add" type="submit" onClick={onClickHandleSubmit} />
+        <Button label="Add" type="submit" />
       </form>
     </div>
   );

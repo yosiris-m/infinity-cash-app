@@ -54,7 +54,7 @@
 
 
 .label {
-  border: 1px solid #e0eae0;
+  border: none;
   border-bottom: 2px solid green;
   text-align: center;
   font-size: 1rem;
@@ -67,13 +67,13 @@
   color: #198754;
 }
 .labelSelectedType {
- background-color: #5bad0d;
+  background-color: #5bad0d;
   font-size: 1.2rem;
   color: white;
   height: 2rem;
   width: 6rem;
   border-radius: 0.5rem;
- text-align: center;
+  text-align: center;
 }
 
 
