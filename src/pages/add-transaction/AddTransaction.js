@@ -30,6 +30,12 @@ function AddTransaction() {
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
+
+    if (selectedCategory === "") {
+      alert("Please, select a category");
+      return;
+    }
+
     createTransaction(amount, selectedDate, selectedCategory, type)
       .then(() => {
         setAmount("");
@@ -50,31 +56,37 @@ function AddTransaction() {
         </Link>
         <h2 className={styles.title}>Add {type}</h2>
       </div>
-      <div className={styles.wrapper}>
+      <form className={styles.wrapper} onSubmit={handleSubmit}>
         <input
+          required
           className={styles.date}
           type="date"
           max={now}
           onChange={(event) => setSelectedDate(event.target.value)}
           value={selectedDate}
         />
-        <div>
-          <input
-            className={styles.amount}
-            type="number"
-            min="1"
-            placeholder="0.0€"
-            value={amount}
-            onChange={(event) => setAmount(event.target.value)}
-          />
+        <div className={styles.labelAmount}>
+          <label>
+            <input
+              className={styles.amount}
+              required
+              type="number"
+              min="0.01"
+              step="0.01"
+              placeholder="0.0"
+              value={amount}
+              onChange={(event) => setAmount(event.target.value)}
+            />
+            €
+          </label>
         </div>
         <CategoryList
           selectedCategory={selectedCategory}
           categories={filteredCategories}
           onSelectCategory={(category) => setSelectedCategory(category)}
         />
-        <Button label="Add" onClick={handleSubmit} />
-      </div>
+        <Button label="Add" type="submit" />
+      </form>
     </>
   );
 }
