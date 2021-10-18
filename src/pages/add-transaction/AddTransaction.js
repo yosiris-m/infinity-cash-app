@@ -7,20 +7,25 @@ import Button from "../../components/Button";
 import { createTransaction } from "../../services/transactions";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./AddTransaction.module.scss";
+import Loading from "../../components/Loading";
 
 function AddTransaction() {
   const now = moment().format("YYYY-MM-DD");
   const history = useHistory();
   const { type } = useParams();
 
+  const [loading, setLoading] = useState(false);
   const [selectedDate, setSelectedDate] = useState(now);
   const [amount, setAmount] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
+
     getCategories().then((categories) => {
       setCategories(categories);
+      setLoading(false);
     });
   }, []);
 
@@ -80,11 +85,16 @@ function AddTransaction() {
             €
           </label>
         </div>
-        <CategoryList
-          selectedCategory={selectedCategory}
-          categories={filteredCategories}
-          onSelectCategory={(category) => setSelectedCategory(category)}
-        />
+        {loading ? (
+          <Loading loading={loading} />
+        ) : (
+          <CategoryList
+            selectedCategory={selectedCategory}
+            categories={filteredCategories}
+            onSelectCategory={(category) => setSelectedCategory(category)}
+          />
+        )}
+
         <Button label="Add" type="submit" />
       </form>
     </>

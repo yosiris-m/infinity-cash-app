@@ -61,10 +61,6 @@ function Home() {
       });
   }, [selectedYearAndMonth]);
 
-  if (loading) {
-    return <Loading loading={loading} />;
-  }
-
   return (
     <>
       <header className={styles.header} id="home">
@@ -73,16 +69,24 @@ function Home() {
       </header>
 
       <main className={styles.main}>
-        <div>
-          <MonthPicker
-            initValue={{ year, month }}
-            maxValue={{ year, month }}
-            onSelect={(yearAndMonth) => setSelectedYearAndMonth(yearAndMonth)}
-          />
-          <Summary transactions={transactions} />
-          <Chart data={chartData} />
-        </div>
-        <TransactionList transactions={transactions} />
+        {loading ? (
+          <Loading loading={loading} />
+        ) : (
+          <>
+            <div>
+              <MonthPicker
+                initValue={{ year, month }}
+                maxValue={{ year, month }}
+                onSelect={(yearAndMonth) =>
+                  setSelectedYearAndMonth(yearAndMonth)
+                }
+              />
+              <Summary transactions={transactions} />
+              <Chart data={chartData} />
+            </div>
+            <TransactionList transactions={transactions} />
+          </>
+        )}
       </main>
 
       <footer className={styles.bottomMenu}>
