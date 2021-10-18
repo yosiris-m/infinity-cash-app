@@ -24,7 +24,7 @@ export default function App() {
             <Route exact path="/add-transaction/:type">
               <AddTransaction />
             </Route>
-            <Route path="/add-category">
+            <Route path="/add-category/:type">
               <AddCategory />
             </Route>
             <Redirect to="/home" />

@@ -3,11 +3,12 @@ import { createCategory } from "../../services/categories";
 import styles from "./AddCategory.module.scss";
 import ImageList from "./components/ImageList";
 import Button from "../../components/Button";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 
 function AddCategory() {
+  const { type } = useParams();
   const [label, setLabel] = useState("");
-  const [type, setType] = useState("");
+  // const [type, setType] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const history = useHistory();
 
@@ -19,18 +20,18 @@ function AddCategory() {
       return;
     }
 
-    if (type === "") {
-      alert("Please, select a transaction type");
-      return;
-    }
+    // if (type === "") {
+    //   alert("Please, select a transaction type");
+    //   return;
+    // }
 
     createCategory(label, type, selectedImage)
       .then(() => {
         setLabel("");
-        setType("");
+        // setType("");
         setSelectedImage("");
 
-        history.push("/home");
+        history.push(`/add-transaction/${type}`);
       })
       .catch((error) => {
         console.error(error); // TODO print error
@@ -56,28 +57,29 @@ function AddCategory() {
           onChange={(event) => setLabel(event.target.value)}
         />
 
-        <div className={styles.boxType}>
-          <div
-            className={
-              type === "income"
-                ? `${styles.labelSelectedType}`
-                : styles.labelType
-            }
-            onClick={() => setType("income")}
-          >
-            Income
-          </div>
-          <div
-            className={
-              type === "expense"
-                ? `${styles.labelSelectedType}`
-                : styles.labelType
-            }
-            onClick={() => setType("expense")}
-          >
-            Expense
-          </div>
-        </div>
+        {/*<div className={styles.boxType}>*/}
+        {/*  <div*/}
+        {/*    className={*/}
+        {/*      type === "income"*/}
+        {/*        ? `${styles.labelSelectedType}`*/}
+        {/*        : styles.labelType*/}
+        {/*    }*/}
+        {/*    onClick={() => setType("income")}*/}
+        {/*  >*/}
+        {/*    Income*/}
+        {/*  </div>*/}
+        {/*  <div*/}
+        {/*    className={*/}
+        {/*      type === "expense"*/}
+        {/*        ? `${styles.labelSelectedType}`*/}
+        {/*        : styles.labelType*/}
+        {/*    }*/}
+        {/*    onClick={() => setType("expense")}*/}
+        {/*  >*/}
+        {/*    Expense*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+
         <div className={styles.image}>
           <ImageList
             onSelectImage={(img) => setSelectedImage(img)}

@@ -1,7 +1,13 @@
 import React from "react";
 import styles from "./CategoryList.module.scss";
+import { Link } from "react-router-dom";
 
-function CategoryList({ categories, onSelectCategory, selectedCategory }) {
+function CategoryList({
+  categories,
+  onSelectCategory,
+  selectedCategory,
+  type,
+}) {
   return (
     <div className={styles.container}>
       {categories.map((category, categories) => (
@@ -20,6 +26,9 @@ function CategoryList({ categories, onSelectCategory, selectedCategory }) {
           <div>{category.label}</div>
         </div>
       ))}
+      <Link to={`/add-category/${type}`} className={styles.addCategory}>
+        <div>New Category</div>
+      </Link>
     </div>
   );
 }

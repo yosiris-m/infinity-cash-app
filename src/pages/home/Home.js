@@ -96,9 +96,6 @@ function Home() {
         <Link to="/add-transaction/expense" className={styles.newExpense}>
           Expense
         </Link>
-        <Link to="/add-category" className={styles.newTransaction}>
-          Category
-        </Link>
       </footer>
     </>
   );

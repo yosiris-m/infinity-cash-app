@@ -39,10 +39,17 @@
   background-color: rgb(213, 248, 224);
   font-size: 1rem;
   color: rgb(6, 165, 27);
-
-
 }
 
 .categorySelected {
  background-color: #95ea95;
 }
+
+.addCategory {
+  color: #068158;
+
+  &:hover {
+    color: #0b4920;
+  }
+}
+

@@ -92,6 +92,7 @@ function AddTransaction() {
             selectedCategory={selectedCategory}
             categories={filteredCategories}
             onSelectCategory={(category) => setSelectedCategory(category)}
+            type={type}
           />
         )}
 
