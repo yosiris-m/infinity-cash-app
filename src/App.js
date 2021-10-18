@@ -11,28 +11,41 @@ import Home from "./pages/home/Home";
 
 import AddTransaction from "./pages/add-transaction/AddTransaction";
 import AddCategory from "./pages/add-category/AddCategory";
-import { Spinner } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import Loadin from "./pages/home/loading/Loading";
 
 export default function App() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 7000);
+  }, []);
+
   return (
     <>
-      <Router>
-        <Spinner animation="" color="success" />
-        <div>
-          <Switch>
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route exact path="/add-transaction/:type">
-              <AddTransaction />
-            </Route>
-            <Route path="/add-category">
-              <AddCategory />
-            </Route>
-            <Redirect to="/home" />
-          </Switch>
-        </div>
-      </Router>
+      {loading ? (
+        <Loadin animation="" color={"#F37A24"} loading={loading} />
+      ) : (
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path="/home">
+                <Home />
+              </Route>
+              <Route exact path="/add-transaction/:type">
+                <AddTransaction />
+              </Route>
+              <Route path="/add-category">
+                <AddCategory />
+              </Route>
+              <Redirect to="/home" />
+            </Switch>
+          </div>
+        </Router>
+      )}
     </>
   );
 }
