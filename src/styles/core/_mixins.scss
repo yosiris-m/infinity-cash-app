@@ -18,13 +18,24 @@
 
 @mixin flexNewTransaction() {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 2rem;
-  width: 4rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
   text-decoration: none;
   color: #fff;
-  background: rgba(62, 175, 11, 0.96);
-  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(75, 73, 73, 0.84);
+  font-size: .5rem;
+
+  @media all and (min-width: 768px) {
+    height: 4.5rem;
+    width: 4.5rem;
+    font-size: .8rem;
+  }
+
+  &:hover {
+    color: white;
+  }
 }

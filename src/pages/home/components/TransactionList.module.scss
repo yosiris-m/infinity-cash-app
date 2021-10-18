@@ -2,7 +2,7 @@
 
 .wrapper {
   margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 4.5rem;
 
   @media all and (min-width: 768px) {
     margin-left: auto;
@@ -39,11 +39,16 @@
 .rowBox {
   padding: 0.5rem 1.5rem;
   font-size: 0.9rem;
-}
 
-.rowBox i {
-  color: rgba(38, 37, 37, 0.94);
-  padding-right: 0.5rem;
+  @media all and (min-width: 768px) {
+    width: 18rem;
+  }
+
+
+  & i {
+    color: rgba(38, 37, 37, 0.94);
+    padding-right: 0.5rem;
+  }
 }
 
 .price {

@@ -90,11 +90,13 @@ function Home() {
       </main>
 
       <footer className={styles.bottomMenu}>
-        <Link to="/add-transaction/income" className={styles.newTransaction}>
-          Income
+        <Link to="/add-transaction/income" className={styles.newIncome}>
+          <i className="fas fa-arrow-down fa-2x" />
+          <span>Income</span>
         </Link>
         <Link to="/add-transaction/expense" className={styles.newExpense}>
-          Expense
+          <i className="fas fa-arrow-up fa-2x" />
+          <span>Expense</span>
         </Link>
       </footer>
     </>

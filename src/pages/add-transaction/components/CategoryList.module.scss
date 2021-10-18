@@ -3,6 +3,7 @@
 
 .container {
   @include flex-row;
+  justify-content: flex-start;
   flex-wrap: wrap;
   padding: 0 2rem;
 
@@ -28,7 +29,6 @@
     margin: 33px 10px 20px 20px;
     font-size: 1rem;
   }
-
 }
 
 .imgCategoryBox {
@@ -46,10 +46,18 @@
 }
 
 .addCategory {
-  color: #068158;
+  text-decoration: none;
 
-  &:hover {
-    color: #0b4920;
-  }
+}
+
+.newCategory {
+  @include flex-row;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(23, 136, 42, 0.95);
+  margin-bottom: 0.7rem;
+  margin-left: 2rem;
+  color: white;
 }
 

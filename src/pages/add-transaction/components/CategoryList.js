@@ -27,7 +27,9 @@ function CategoryList({
         </div>
       ))}
       <Link to={`/add-category/${type}`} className={styles.addCategory}>
-        <div>New Category</div>
+        <div className={styles.newCategory}>
+          <i className="fas fa-plus" />
+        </div>
       </Link>
     </div>
   );
