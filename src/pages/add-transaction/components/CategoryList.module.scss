@@ -2,62 +2,69 @@
 @import "../../../styles/core/variables";
 
 .container {
-  @include flex-row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  padding: 0 2rem;
+  @include flex-column;
+  align-items: center;
+  padding: 0 1rem;
+  border: 1px solid rgb(211, 209, 209);
+  border-radius: 1%;
+  margin-top: 1rem;
 
   @media all and (min-width: 768px) {
-   width: 50vw;
-  }
-
-  @media all and (min-width: 1220px) {
-    width: 40vw;
+    margin-top: 1.5rem;
+    @include flex-row;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 30rem;
   }
 }
 
-
 .category {
-  @include flex-column;
   font-size: 0.6rem;
   font-family: $font-family;
-  color: black;
+  height: 3rem;
   cursor: pointer;
-  margin: 1.5rem 0 1rem 1rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  border: 1px solid rgb(238, 236, 236);
 
   @media all and (min-width: 768px) {
-    margin: 33px 10px 20px 20px;
     font-size: 1rem;
   }
 }
 
+.category:hover {
+  background-color: green;
+}
 .imgCategoryBox {
-  @include flex-row;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgb(213, 248, 224);
+  @include flex-column;
+  height: 2rem;
   font-size: 1rem;
-  color: rgb(6, 165, 27);
 }
 
 .categorySelected {
- background-color: #95ea95;
+  border-radius: 3%;
+  background-color: green;
+  color: aliceblue;
 }
 
 .addCategory {
   text-decoration: none;
+  margin-bottom: 1rem;
 
+  @media all and (min-width: 768px) {
+    margin-bottom: 0;
+  }
 }
 
 .newCategory {
   @include flex-row;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(23, 136, 42, 0.95);
-  margin-bottom: 0.7rem;
-  margin-left: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 5%;
+  background-color: rgba(68, 82, 70, 0.95);
   color: white;
 }
 
+.newCategory:hover {
+  background-color: green;
+}

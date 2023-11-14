@@ -1,56 +1,69 @@
-import { ResponsivePie } from "@nivo/pie";
-import * as PropTypes from "prop-types";
-import styles from "./Chart.module.scss";
+import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
+import Dinero from "dinero.js";
 
 export default function Chart({ data }) {
-  const isDataEmpty = data.length === 0;
-  const noData = [{ id: null, label: "", value: true }];
+  const element = [
+    { name: "Ingresos", value: data.income },
+    { name: "Gastos", value: data.expenses },
+    { name: "Total", value: data.balance },
+  ];
+
+  const COLORS = ["#218814", "#dc3545", "#b4b9b2de"];
+
+  const RADIAN = Math.PI / 180;
+  const renderCustomizedLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    index,
+  }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.3;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    const formattedValue = Dinero({
+      amount: data[Object.keys(data)[index]],
+      currency: "EUR",
+    })
+      .setLocale("es-ES")
+      .toFormat();
+
+    return (
+      <text
+        x={x}
+        y={y}
+        textAnchor={x > cx ? "start" : "end"}
+        dominantBaseline="central"
+      >
+        {`${formattedValue} `}
+      </text>
+    );
+  };
+
   return (
     <>
-      <div className={styles.wrapper} id="chart">
-        <ResponsivePie
-          data={isDataEmpty ? noData : data}
-          colors={{ scheme: "paired" }}
-          margin={{ left: 50, right: 50 }}
-          innerRadius={0.3}
-          padAngle={0.7}
-          startAngle={-70}
-          endAngle={296}
-          cornerRadius={2}
-          activeInnerRadiusOffset={22}
-          activeOuterRadiusOffset={8}
-          borderWidth={10}
-          borderColor={{ theme: "background" }}
-          enableArcLinkLabels={!isDataEmpty}
-          arcLinkLabelsDiagonalLength={7}
-          arcLinkLabelsStraightLength={8}
-          arcLinkLabelsTextOffset={3}
-          arcLinkLabelsThickness={2}
-          arcLinkLabelsSkipAngle={4}
-          arcLinkLabelsTextColor={{ from: "color", modifiers: [] }}
-          arcLinkLabelsColor={{ from: "color" }}
-          enableArcLabels={false}
-          arcLabelsSkipAngle={10}
-          arcLabelsTextColor="black"
-          isInteractive={!isDataEmpty}
-          theme={{
-            labels: {
-              text: {
-                fontSize: 9,
-                fontWeight: " bold ",
-                fontFamily: "Montserrat",
-              },
-            },
-          }}
-        />
-      </div>
-      {isDataEmpty && (
-        <div className={styles.dataEmpty}>
-          There are not transactions for this month.
-        </div>
-      )}
+      <ResponsiveContainer width="100%" height="30%">
+        <PieChart width={400} height={400}>
+          <Pie
+            data={element}
+            dataKey="value"
+            nameKey="name"
+            label={renderCustomizedLabel}
+            outerRadius={80}
+            innerRadius={50}
+            labelLine={false}
+          >
+            {element.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+        </PieChart>
+      </ResponsiveContainer>
     </>
   );
 }
-
-Chart.propTypes = { data: PropTypes.arrayOf(PropTypes.any) };

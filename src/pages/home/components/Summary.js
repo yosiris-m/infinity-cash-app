@@ -1,7 +1,8 @@
+import Chart from "./Chart";
 import styles from "./Summary.module.scss";
 import Dinero from "dinero.js";
 
-function Summary({ transactions }) {
+function Summary({ transactions, dataChart, selectedYearAndMonth }) {
   if (transactions.length === 0) {
     return null;
   }
@@ -17,35 +18,40 @@ function Summary({ transactions }) {
     }
   }
 
-  const total = income - expenses;
+  const balance = income - expenses;
+  const chartData = { income, expenses, balance };
 
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.boxIncome}>
-        <span>Income</span>
-        <span>
-          {Dinero({ amount: income, currency: "EUR" })
-            .setLocale("es-ES")
-            .toFormat()}
-        </span>
+    <>
+      <Chart data={chartData} selectedYearAndMonth={selectedYearAndMonth} />
+      <div className={styles.wrapper}>
+        <div className={styles.boxIncome}>
+          <span>Ingresos</span>
+          <span>
+            {Dinero({ amount: income, currency: "EUR" })
+              .setLocale("es-ES")
+              .toFormat()}
+          </span>
+        </div>
+        <div className={styles.boxExpense}>
+          <span>Gastos</span>
+          <span>
+            {Dinero({ amount: expenses, currency: "EUR" })
+              .setLocale("es-ES")
+              .toFormat()}
+          </span>
+        </div>
+
+        <div className={styles.boxBalance}>
+          <span>Disponibles</span>
+          <span>
+            {Dinero({ amount: balance, currency: "EUR" })
+              .setLocale("es-ES")
+              .toFormat()}
+          </span>
+        </div>
       </div>
-      <div className={styles.boxBalance}>
-        <span>Balance</span>{" "}
-        <span>
-          {Dinero({ amount: total, currency: "EUR" })
-            .setLocale("es-ES")
-            .toFormat()}
-        </span>
-      </div>
-      <div className={styles.boxExpense}>
-        <span>Expense</span>
-        <span>
-          {Dinero({ amount: expenses, currency: "EUR" })
-            .setLocale("es-ES")
-            .toFormat()}
-        </span>
-      </div>
-    </div>
+    </>
   );
 }
 

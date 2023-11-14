@@ -1,25 +1,26 @@
 @import "../../styles/core/variables";
 @import "../../styles/core/mixins";
 
-.wrapper {
-  @include flex-column;
-  margin-top: 2rem;
-}
-
 .headerTransaction {
   background: $background-colorG;
-  background: radial-gradient(circle, rgb(91, 173, 13) 0%, rgba(23, 93, 34, 0.76) 100%);
+  background: radial-gradient(
+    circle,
+    rgb(91, 173, 13) 0%,
+    rgba(23, 93, 34, 0.76) 100%
+  );
   height: 3rem;
   display: flex;
   align-items: center;
-  font-family: $font-family ;
+  font-family: $font-family;
   font-size: 1rem;
   color: #fff;
+}
 
-  & i {
-    color: #fff;
-    margin-left: 2rem;
-  }
+.leftHome {
+  @include flex-row;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #fff;
 }
 
 .title {
@@ -27,24 +28,66 @@
   margin: 0 0 0 2rem;
 }
 
+.formContainer {
+  @include flex-column;
+  align-items: center;
+  max-width: 100%;
+
+  @media all and (min-width: 768px) {
+    border: 0.2rem solid rgba(241, 236, 236, 0.623);
+    margin: 3rem auto;
+    max-width: 60%;
+  }
+}
+
+.buttonContainer {
+  @include flex-row;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .date {
   margin-bottom: 2rem;
-  border:1px solid green;
+  border: 1px solid #6e6d6d;
+  border-radius: 3%;
+  margin-top: 2rem;
+  margin-left: 0.5rem;
+  width: 10rem;
+  text-align: center;
+  font-size: 1rem;
+  height: 2rem;
+}
+
+.nota {
+  margin: 1rem;
+}
+
+.formContent {
+  text-align: center;
 }
 
 .amount {
-  height: 3rem;
-  border: none;
-  text-align: center;
-  border-bottom: 1px solid green;
-  font-size: 1.3rem;
   width: 10rem;
+  text-align: center;
+  font-size: 1rem;
+  text-transform: capitalize;
+  border: 1px solid #6e6d6d;
+  border-radius: 3px;
+  height: 2rem;
+  margin-left: 0.5rem;
 }
 
 .labelAmount {
-  text-align: center;
-
   & label {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
+}
+
+.buttonCancel {
+  background-color: #6e6d6d;
+}
+
+.buttonCancel:hover {
+  background-color: rgb(17, 17, 17);
 }

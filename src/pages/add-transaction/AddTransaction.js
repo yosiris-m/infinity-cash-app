@@ -9,6 +9,9 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "./AddTransaction.module.scss";
 import Loading from "../../components/Loading";
 
+import "moment/locale/es";
+import { traductionType } from "../../locales/traduction";
+
 function AddTransaction() {
   const now = moment().format("YYYY-MM-DD");
   const history = useHistory();
@@ -37,7 +40,7 @@ function AddTransaction() {
     ev.preventDefault();
 
     if (selectedCategory === "") {
-      alert("Please, select a category");
+      alert("Por favor, selecione una categoria.");
       return;
     }
 
@@ -49,42 +52,28 @@ function AddTransaction() {
         history.push("/home");
       })
       .catch((error) => {
-        console.error(error); // TODO print error
+        console.error(error);
       });
   };
 
   return (
     <>
       <div className={styles.headerTransaction}>
-        <Link to="/home">
-          <i className="fas fa-arrow-left" />
+        <Link to="/home" className={styles.leftHome}>
+          <i className="fas fa-arrow-left " />
+          <h2 className={styles.title}>
+            Añadir <span>{traductionType[type]}</span>
+          </h2>
         </Link>
-        <h2 className={styles.title}>Add {type}</h2>
       </div>
-      <form className={styles.wrapper} onSubmit={handleSubmit}>
-        <input
-          required
-          className={styles.date}
-          type="date"
-          max={now}
-          onChange={(event) => setSelectedDate(event.target.value)}
-          value={selectedDate}
-        />
-        <div className={styles.labelAmount}>
-          <label>
-            <input
-              className={styles.amount}
-              required
-              type="number"
-              min="0.01"
-              step="0.01"
-              placeholder="0.0"
-              value={amount}
-              onChange={(event) => setAmount(event.target.value)}
-            />
-            €
-          </label>
-        </div>
+
+      <form className={styles.formContainer} onSubmit={handleSubmit}>
+        <p className={styles.nota}>
+          <strong>Nota: </strong>
+          Selecione la categoría, la fecha y la cantidad. Si su categoría no se
+          encuentra disponible pulse el botón + para añadir una nueva.
+        </p>
+
         {loading ? (
           <Loading loading={loading} />
         ) : (
@@ -95,8 +84,44 @@ function AddTransaction() {
             type={type}
           />
         )}
-
-        <Button label="Add" type="submit" />
+        <div className={styles.formContent}>
+          <label>
+            Seleccione una fecha
+            <input
+              required
+              className={styles.date}
+              type="date"
+              max={now}
+              onChange={(event) => setSelectedDate(event.target.value)}
+              value={selectedDate}
+            />
+          </label>
+          <div className={styles.labelAmount}>
+            <label>
+              Ingrese una cantidad
+              <input
+                className={styles.amount}
+                required
+                type="number"
+                min="0.01"
+                step="0.01"
+                placeholder="0.0 €"
+                value={amount}
+                onChange={(event) => setAmount(event.target.value)}
+              />
+            </label>
+          </div>
+          <div className={styles.buttonContainer}>
+            <Button label="Enviar" type="submit" />
+            <Link to="/home">
+              <Button
+                label="Cancelar"
+                type="reset"
+                className={styles.buttonCancel}
+              />
+            </Link>
+          </div>
+        </div>
       </form>
     </>
   );

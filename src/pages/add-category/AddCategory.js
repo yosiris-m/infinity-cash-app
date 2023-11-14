@@ -8,7 +8,6 @@ import { Link, useHistory, useParams } from "react-router-dom";
 function AddCategory() {
   const { type } = useParams();
   const [label, setLabel] = useState("");
-  // const [type, setType] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const history = useHistory();
 
@@ -20,73 +19,50 @@ function AddCategory() {
       return;
     }
 
-    // if (type === "") {
-    //   alert("Please, select a transaction type");
-    //   return;
-    // }
-
     createCategory(label, type, selectedImage)
       .then(() => {
         setLabel("");
-        // setType("");
         setSelectedImage("");
 
         history.push(`/add-transaction/${type}`);
       })
       .catch((error) => {
-        console.error(error); // TODO print error
+        console.error(error);
       });
   };
 
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link to="/home">
+        <Link to="/home" className={styles.categoryLink}>
           <i className="fas fa-arrow-left" />
+          <p className={styles.title}>Regresar</p>
         </Link>
-        <h2 className={styles.title}>Add category</h2>
       </header>
 
       <form className={styles.wrapper} onSubmit={handleSubmit}>
-        <input
-          className={styles.label}
-          required
-          type="text"
-          value={label}
-          placeholder="Name"
-          onChange={(event) => setLabel(event.target.value)}
-        />
+        <fieldset className={styles.fielset}>
+          <legend>Añadir categoria</legend>
+          <div className={styles.image}>
+            <ImageList
+              onSelectImage={(img) => setSelectedImage(img)}
+              selectedImage={selectedImage}
+            />
+          </div>
 
-        {/*<div className={styles.boxType}>*/}
-        {/*  <div*/}
-        {/*    className={*/}
-        {/*      type === "income"*/}
-        {/*        ? `${styles.labelSelectedType}`*/}
-        {/*        : styles.labelType*/}
-        {/*    }*/}
-        {/*    onClick={() => setType("income")}*/}
-        {/*  >*/}
-        {/*    Income*/}
-        {/*  </div>*/}
-        {/*  <div*/}
-        {/*    className={*/}
-        {/*      type === "expense"*/}
-        {/*        ? `${styles.labelSelectedType}`*/}
-        {/*        : styles.labelType*/}
-        {/*    }*/}
-        {/*    onClick={() => setType("expense")}*/}
-        {/*  >*/}
-        {/*    Expense*/}
-        {/*  </div>*/}
-        {/*</div>*/}
-
-        <div className={styles.image}>
-          <ImageList
-            onSelectImage={(img) => setSelectedImage(img)}
-            selectedImage={selectedImage}
-          />
-        </div>
-        <Button label="Add" type="submit" />
+          <label className={styles.label}>
+            Nombre de la categoria
+            <input
+              className={styles.labelInput}
+              required
+              type="text"
+              value={label}
+              placeholder=""
+              onChange={(event) => setLabel(event.target.value)}
+            />
+          </label>
+          <Button label="Añadir" type="submit" />
+        </fieldset>
       </form>
     </div>
   );

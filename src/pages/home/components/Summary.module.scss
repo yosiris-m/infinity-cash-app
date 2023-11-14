@@ -4,13 +4,17 @@
 .wrapper {
   @include flex-row;
   margin-top: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  width: 100%;
+
+  @media all and (min-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .boxIncome {
   @include flex-column;
   color: green;
-  width: 7rem;
   height: 3rem;
   border-radius: 10px;
 }
@@ -24,7 +28,8 @@
 .boxExpense {
   @include flex-column;
   color: rgb(209, 56, 17);
-  width: 7rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   height: 3rem;
   border-radius: 10px;
   text-align: center;

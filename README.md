@@ -1,4 +1,4 @@
-# family-cash App
+# InfinityCash
 
 Budget Manager and Expense Tracker app.
 
@@ -10,7 +10,7 @@ Budget Manager and Expense Tracker app.
 
 ## Designs
 
-![Designs](./src/images/transaction.png)
+![Designs](./src/images/transactions.png)
 
 # Getting Started with Create React App
 

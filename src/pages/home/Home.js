@@ -7,10 +7,11 @@ import Summary from "./components/Summary";
 import { Link } from "react-router-dom";
 import image from "../../images/cash.svg";
 
+import "moment/locale/es";
+
 import styles from "./Home.module.scss";
 import { getTransactions } from "../../services/transactions";
 import TransactionList from "./components/TransactionList";
-import Chart from "./components/Chart";
 import Loading from "../../components/Loading";
 
 function Home() {
@@ -23,49 +24,56 @@ function Home() {
   const [transactions, setTransactions] = useState([]);
   const [selectedYearAndMonth, setSelectedYearAndMonth] = useState(now);
 
-  const fetchExpenses = (month) => {
+  const fetchExpenses = async (month) => {
     const from = `${month}-01`;
     const to = moment(month).endOf("month").format("YYYY-MM-DD");
 
-    return getExpenses({ from, to }).then((expenses) => {
-      const data = expenses.map((expense) => ({
-        id: expense.label,
-        label: expense.label,
-        value: expense.total,
-      }));
-      setChartData(data);
-    });
+    const expenses = await getExpenses({ from, to });
+    const data = expenses.map((expense) => ({
+      id: expense.label,
+      label: expense.label,
+      value: expense.total,
+    }));
+    setChartData(data);
   };
 
-  const fetchTransactions = (month) => {
+  const fetchTransactions = async (month) => {
     const from = `${month}-01`;
     const to = moment(month).endOf("month").format("YYYY-MM-DD");
 
-    return getTransactions({ from, to }).then((transactions) => {
-      setTransactions(transactions);
-    });
+    console.log("from:", from);
+    console.log("to:", to);
+    const transactions = await getTransactions({ from, to });
+    setTransactions(transactions);
   };
 
   useEffect(() => {
     setLoading(true);
 
-    const fetchTransactionsPromise = fetchTransactions(selectedYearAndMonth);
-    const fetchExpensesPromise = fetchExpenses(selectedYearAndMonth);
+    if (selectedYearAndMonth) {
+      const fetchTransactionsPromise = fetchTransactions(selectedYearAndMonth);
+      const fetchExpensesPromise = fetchExpenses(selectedYearAndMonth);
 
-    Promise.all([fetchTransactionsPromise, fetchExpensesPromise])
-      .then(() => {
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      Promise.all([fetchTransactionsPromise, fetchExpensesPromise])
+        .then(() => {
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.log("Error al cargar datos:", err);
+          setLoading(false);
+        });
+    }
   }, [selectedYearAndMonth]);
+
+  const handleMonthSelect = (selectedYearAndMonth) => {
+    setSelectedYearAndMonth(selectedYearAndMonth);
+  };
 
   return (
     <>
       <header className={styles.header} id="home">
-        <img src={image} className={styles.imgHeader} alt="FamilyCash logo" />
-        FamilyCash
+        <img src={image} className={styles.imgHeader} alt="InfinityCash logo" />
+        InfinityCash
       </header>
 
       <main className={styles.main}>
@@ -73,18 +81,30 @@ function Home() {
           <Loading loading={loading} />
         ) : (
           <>
-            <div>
+            <div className={styles.transactionSumary}>
               <MonthPicker
+                key={selectedYearAndMonth}
                 initValue={{ year, month }}
                 maxValue={{ year, month }}
-                onSelect={(yearAndMonth) =>
-                  setSelectedYearAndMonth(yearAndMonth)
-                }
+                onSelect={handleMonthSelect}
+                monthName={moment(selectedYearAndMonth).format("MMMM")}
               />
-              <Summary transactions={transactions} />
-              <Chart data={chartData} />
+              {chartData.length === 0 && transactions.length === 0 ? (
+                <div className={styles.dataEmpty}>
+                  No hay transacciones en este mes, por favor cree una nueva
+                  transacción.
+                </div>
+              ) : (
+                <>
+                  <Summary
+                    transactions={transactions}
+                    dataChart={chartData}
+                    selectedYearAndMonth={selectedYearAndMonth}
+                  />
+                  <TransactionList transactions={transactions} />
+                </>
+              )}
             </div>
-            <TransactionList transactions={transactions} />
           </>
         )}
       </main>
@@ -92,11 +112,11 @@ function Home() {
       <footer className={styles.bottomMenu}>
         <Link to="/add-transaction/income" className={styles.newIncome}>
           <i className="fas fa-arrow-down fa-2x" />
-          <span>Income</span>
+          <span>Ingresos</span>
         </Link>
         <Link to="/add-transaction/expense" className={styles.newExpense}>
           <i className="fas fa-arrow-up fa-2x" />
-          <span>Expense</span>
+          <span>Gastos</span>
         </Link>
       </footer>
     </>

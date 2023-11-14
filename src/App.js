@@ -16,20 +16,18 @@ export default function App() {
   return (
     <>
       <Router>
-        <div>
-          <Switch>
-            <Route exact path="/home">
-              <Home />
-            </Route>
-            <Route exact path="/add-transaction/:type">
-              <AddTransaction />
-            </Route>
-            <Route path="/add-category/:type">
-              <AddCategory />
-            </Route>
-            <Redirect to="/home" />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/add-transaction/:type">
+            <AddTransaction />
+          </Route>
+          <Route path="/add-category/:type">
+            <AddCategory />
+          </Route>
+          <Redirect to="/home" />
+        </Switch>
       </Router>
     </>
   );

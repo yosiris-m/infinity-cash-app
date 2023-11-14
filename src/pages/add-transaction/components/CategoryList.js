@@ -11,7 +11,7 @@ function CategoryList({
   return (
     <div className={styles.container}>
       {categories.map((category, categories) => (
-        <div
+        <p
           className={
             category.id === selectedCategory.id
               ? `${styles.category} ${styles.categorySelected}`
@@ -22,9 +22,9 @@ function CategoryList({
         >
           <div className={styles.imgCategoryBox}>
             <i className={category.image} />
+            <span>{category.label}</span>
           </div>
-          <div>{category.label}</div>
-        </div>
+        </p>
       ))}
       <Link to={`/add-category/${type}`} className={styles.addCategory}>
         <div className={styles.newCategory}>

@@ -15,7 +15,7 @@ function TransactionList({ transactions }) {
     <div className={styles.wrapper}>
       {Object.keys(transactionsByDate).map((date, idx) => (
         <div key={idx} className={styles.box}>
-          <div className={styles.date}>{moment(date).format("LL")}</div>
+          <p className={styles.date}>{moment(date).format("ll")}</p>
 
           {transactionsByDate[date].map((transaction, idx) => {
             const { category, amount, type, image } = transaction;

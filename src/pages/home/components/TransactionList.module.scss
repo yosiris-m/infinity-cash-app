@@ -13,7 +13,7 @@
   }
 
   @media all and (min-width: 1220px) {
-    max-width: 50rem;
+    //max-width: 50rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -43,7 +43,6 @@
   @media all and (min-width: 768px) {
     width: 18rem;
   }
-
 
   & i {
     color: rgba(38, 37, 37, 0.94);
