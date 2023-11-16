@@ -1,7 +1,5 @@
 const getBaseUrl = () => {
-  const prodUrl = "https://family-cash-api.herokuapp.com/api/v1";
-  const localUrl = "http://localhost:8000/api/v1";
-  const baseUrl = process.env.NODE_ENV === "production" ? prodUrl : localUrl;
+  const baseUrl = process.env.API_BASE_URL || "http://localhost:8000/api/v1";
   return baseUrl;
 };
 
