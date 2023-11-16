@@ -2,6 +2,7 @@
   "name": "infinity-cash-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://yosiris-m.github.io/infinity-cash-app",
   "dependencies": {
     "@nivo/core": "^0.74.0",
     "@nivo/pie": "^0.74.0",
