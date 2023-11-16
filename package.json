@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.0.2",
     "dinero.js": "^1.9.0",
+    "gh-pages": "^6.0.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
@@ -23,6 +24,8 @@
   "scripts": {
     "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts --openssl-legacy-provider build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
