@@ -1,5 +1,7 @@
 const getBaseUrl = () => {
-  const baseUrl = process.env.API_BASE_URL || "http://localhost:8000/api/v1";
+  const prodUrl = "https://infinty-cashdb-production.up.railway.app/api/v1";
+  const localUrl = "http://localhost:8000/api/v1";
+  const baseUrl = process.env.NODE_ENV === "production" ? prodUrl : localUrl;
   return baseUrl;
 };
 
