@@ -92,7 +92,7 @@ function Home() {
               {chartData.length === 0 && transactions.length === 0 ? (
                 <div className={styles.dataEmpty}>
                   No hay transacciones en este mes, por favor cree una nueva
-                  transacción.
+                  transacción 💸.
                 </div>
               ) : (
                 <>

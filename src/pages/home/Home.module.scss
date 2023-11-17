@@ -67,3 +67,13 @@
     width: 100%;
   }
 }
+
+.dataEmpty {
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 2rem;
+
+  @media all and (min-width: 768px) {
+    font-size: 1.3rem;
+  }
+}
